@@ -1,6 +1,6 @@
 AdminUser.find_or_create_by!(email: "admin@casamento.com") do |admin|
   admin.password = "trocar-essa-senha"
-  admin.password_confirmation = "trocar-essa-senha"
+  admin.password_confirmation = "trocar-essa-senha" if admin.respond_to?(:password_confirmation=)
 end
 
 official_gifts = [
