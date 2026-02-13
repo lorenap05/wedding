@@ -1,10 +1,17 @@
-<section class="simple-page payment-page">
-  <h1>Pagamento do presente</h1>
-  <h2><%= @gift.name %> — <%= @gift.formatted_price %></h2>
-  <p>Escaneie o QR Code abaixo para concluir o pagamento.</p>
+<section class="payment-page-wrap">
+  <div class="payment-card">
+    <h1>Pagamento do presente</h1>
+    <h2><%= @gift.name %></h2>
+    <p class="payment-price"><%= @gift.formatted_price %></p>
 
-  <div class="qr-placeholder">QR Code (placeholder)</div>
-  <p class="payment-text">Escreva aqui as instruções de pagamento que você quiser.</p>
+    <p class="payment-instruction">Escaneie o QR Code abaixo para concluir o pagamento.</p>
 
-  <%= link_to "Voltar para lista", gifts_path, class: "cta" %>
+    <div class="payment-qr-box">
+      <%= image_tag "wedding/qr_code.png", alt: "QR Code para pagamento", class: "payment-qr-image" %>
+    </div>
+
+    <p class="payment-text">Após o pagamento, você pode voltar à lista para escolher outro item, se desejar.</p>
+
+    <%= link_to "Voltar para lista", gifts_path, class: "payment-back-button" %>
+  </div>
 </section>

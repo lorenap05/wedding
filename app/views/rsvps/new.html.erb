@@ -1,17 +1,34 @@
-<section class="simple-page">
-  <h1>Confirmar presença</h1>
-  <%= form_with model: @rsvp, local: true, class: "card-form" do |f| %>
-    <div>
-      <%= f.label :name, "Seu nome" %>
-      <%= f.text_field :name, required: true %>
-    </div>
+<section class="rsvp-page">
+  <div class="rsvp-container">
+    <header class="rsvp-header">
+      <h1>Confirmar presença</h1>
+      <p>Ficaremos muito felizes em saber se você poderá estar conosco neste dia especial.</p>
+    </header>
 
-    <fieldset>
-      <legend>Você vai ao evento?</legend>
-      <label><%= f.radio_button :attending, true, required: true %> Sim</label>
-      <label><%= f.radio_button :attending, false, required: true %> Não</label>
-    </fieldset>
+    <%= form_with model: @rsvp, local: true, class: "rsvp-form" do |f| %>
+      <div class="rsvp-field">
+        <%= f.label :name, "Seu nome" %>
+        <%= f.text_field :name, required: true, placeholder: "Digite seu nome" %>
+      </div>
 
-    <%= f.submit "Enviar confirmação", class: "cta" %>
-  <% end %>
+      <fieldset class="rsvp-choice-group">
+        <legend>Você vai ao evento?</legend>
+        <label class="rsvp-choice">
+          <%= f.radio_button :attending, true, required: true %>
+          <span>Sim, estarei presente</span>
+        </label>
+
+        <label class="rsvp-choice">
+          <%= f.radio_button :attending, false, required: true %>
+          <span>Não conseguirei ir</span>
+        </label>
+      </fieldset>
+
+      <%= f.submit "Enviar confirmação", class: "rsvp-submit" %>
+    <% end %>
+  </div>
+
+  <div class="rsvp-bottom-photo">
+    <%= image_tag "wedding/rsvp_bottom.png", alt: "Foto do casal", class: "rsvp-couple-photo" %>
+  </div>
 </section>

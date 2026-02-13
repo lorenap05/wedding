@@ -1,13 +1,31 @@
-<h2>Confirmações de presença</h2>
-<table>
-  <thead><tr><th>Nome</th><th>Vai?</th><th>Criado em</th></tr></thead>
-  <tbody>
-    <% @rsvps.each do |rsvp| %>
-      <tr>
-        <td><%= rsvp.name %></td>
-        <td><%= rsvp.attending ? 'Sim' : 'Não' %></td>
-        <td><%= l(rsvp.created_at, format: :short) rescue rsvp.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<section class="admin-rsvp-page">
+  <div class="admin-rsvp-header">
+    <h2>Confirmações de presença</h2>
+    <p>Total de respostas: <strong><%= @rsvps.count %></strong></p>
+  </div>
+
+  <div class="admin-rsvp-table-wrap">
+    <table class="admin-rsvp-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Vai?</th>
+          <th>Criado em</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rsvps.each do |rsvp| %>
+          <tr>
+            <td><%= rsvp.name %></td>
+            <td>
+              <span class="attendance-badge <%= rsvp.attending ? 'yes' : 'no' %>">
+                <%= rsvp.attending ? 'Sim' : 'Não' %>
+              </span>
+            </td>
+            <td><%= l(rsvp.created_at, format: :short) rescue rsvp.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
