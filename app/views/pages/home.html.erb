@@ -48,17 +48,37 @@
   </div>
 </section>
 
-<section class="gift-call dark">
-  <div class="container">
-    <h2>Presentes</h2>
-    <p>Estamos montando nossa lista de presentes com muito carinho.</p>
-    <%= link_to "Ver presentes", gifts_path, class: "cta" %>
+<section class="dresscode-section">
+  <div class="dresscode-container">
+    <div class="dresscode-photo-frame">
+      <%= image_tag "wedding/dresscode", alt: "Inspiração de vestimenta", class: "dresscode-photo" %>
+    </div>
+
+    <div class="dresscode-content">
+      <h2 class="dresscode-title">O que vestir</h2>
+      <p class="dresscode-text">Traje esporte fino. Queremos que se sintam confortáveis no que escolherem vestir</p>
+
+      <p class="dresscode-text">Aos homens: gravatas são opcionais</p>
+
+      <p class="dresscode-text">Às mulheres: gentileza evitar trajes brancos ou de tons muito claros</p>
+    </div>
   </div>
 </section>
 
+<section class="gifts-section">
+  <div class="gifts-container">
+    <h2 class="gifts-title">Presentes</h2>
+    <p class="gifts-text">A presença de vocês no nosso grande dia já é tudo o que poderíamos desejar.</p> 
+    <p class="gifts-text">Mas, se ainda assim quiserem nos presentear, receberemos com muito carinho.</p>
+
+    <%= link_to "Ver lista de presentes", gifts_path, class: "gifts-button" %>
+  </div>
+</section>
+
+
 <section class="center-cta">
   <div class="container center">
-    <%= link_to "Próximo passo", new_rsvp_path, class: "cta-large" %>
+    <%= link_to "Próximo passo", new_rsvp_path, class: "btn btn-light cta-large" %>
   </div>
 </section>
 

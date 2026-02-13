@@ -6,7 +6,7 @@
   --green-5: #dfe6da;
   --font-main: "Pinyon Script", cursive;
   --font-title: "Cormorant Garamond", serif;
-  --font-body: "Special Elite", monospace;
+  --font-body: "Roboto Mono", monospace;
 }
 * { box-sizing: border-box; }
 body { margin: 0; font-family: var(--font-body); background: var(--green-5); color: #151515; }
@@ -123,10 +123,54 @@ h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); margin
 .lunch-image { background: var(--green-5); padding: 0; }
 .lunch-image .container { padding: 0; max-width: 100%; }
 .lunch-image img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+.dresscode-section {
+  background: var(--green-5);
+  color: #121212;
+  padding: 5.2rem 0 6rem;
+}
+
+.dresscode-container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.dresscode-photo-frame {
+  border: 2px solid #d6ded0;
+  padding: .45rem;
+  background: #d4dbcf;
+}
+
+.dresscode-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.dresscode-title {
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 4.4vw, 4.6rem);
+  line-height: 1.04;
+  margin: 0 0 1.8rem;
+  color: #141414;
+  font-weight: 500;
+}
+
+.dresscode-text {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 1.45vw, 2rem);
+  line-height: 1.55;
+  margin: 0 0 1.7rem;
+  color: #171717;
+}
 .center-cta { background: var(--green-5); padding: 4rem 2rem; text-align: center; }
 .center-cta .center { display: flex; justify-content: center; }
-.cta-large { display: inline-block; padding: 1rem 2rem; border: 2px solid var(--green-1); color: var(--green-1); text-decoration: none; background: #fff; cursor: pointer; font-family: var(--font-body); font-weight: bold; font-size: 1.1rem; }
-.cta-large:hover { background: var(--green-1); color: #fff; }
+.cta-large { padding: 1.2rem 2.5rem !important; font-size: 1.4rem !important; font-family: "Cormorant Garamond", serif !important; font-weight: 700 !important; }
 .split { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; align-items:center; }
 .reverse { grid-template-columns: 1.3fr .7fr; }
 .light { background: var(--green-5); color: #181818; }
@@ -136,6 +180,52 @@ h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); margin
 .simple-page { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
 .card-form { background: #fff; padding: 1.2rem; border-radius: 8px; display:grid; gap: 1rem; }
 .card-form input, .card-form textarea { width:100%; padding:.6rem; }
+.gifts-section {
+  background: var(--green-2);
+  color: #fff;
+  padding: 5.8rem 0;
+}
+
+.gifts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.gifts-title {
+  font-family: var(--font-title);
+  color: #fff;
+  font-size: clamp(3rem, 4.8vw, 4.7rem);
+  line-height: 1;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+}
+
+.gifts-text {
+  max-width: 470px;
+  font-family: var(--font-body);
+  color: #fff;
+  font-size: clamp(1.2rem, 1.35vw, 1.8rem);
+  line-height: 1.7;
+  margin: 0 0 2rem;
+}
+
+.gifts-button {
+  display: inline-block;
+  border: 1px solid #dfe6da;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  padding: .8rem 1.4rem;
+  transition: .2s ease;
+}
+
+.gifts-button:hover {
+  background: #dfe6da;
+  color: #2a3225;
+}
+
 .gift-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; }
 .gift-card { background:#fff; border-radius:8px; padding:1rem; }
 .gift-card img { width:100%; border-radius:6px; height:180px; object-fit:cover; }
