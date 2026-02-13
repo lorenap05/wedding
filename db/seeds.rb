@@ -1,6 +1,9 @@
-AdminUser.find_or_create_by!(email: "admin@casamento.com") do |admin|
-  admin.password = "trocar-essa-senha"
-  admin.password_confirmation = "trocar-essa-senha" if admin.respond_to?(:password_confirmation=)
+admin_email = ENV.fetch("ADMIN_EMAIL", "admin@casamento.com")
+admin_password = ENV.fetch("ADMIN_PASSWORD", "trocar-essa-senha")
+
+AdminUser.find_or_create_by!(email: admin_email) do |admin|
+  admin.password = admin_password
+  admin.password_confirmation = admin_password if admin.respond_to?(:password_confirmation=)
 end
 
 official_gifts = [
@@ -8,7 +11,7 @@ official_gifts = [
   ["Fundo não vamos chorar no primeiro mercado", 480],
   ["Nos ajude a pagar nossa dívida estudantil", 340],
   ["Café suficiente para manter o Lukas consciente", 300],
-  ["Plano anti-miojo (porque a Lorena realmente não sabe cozinhar)", 290],
+  ["Plano anti-miojo (porque Lorena realmente não sabe cozinhar)", 290],
   ["Kit de energético para sobreviver a 4h de sono por noite", 270],
   ["Primeira compra aleatória que esquecemos que precisávamos", 260],
   ["Reserva para as plantas novas", 250],

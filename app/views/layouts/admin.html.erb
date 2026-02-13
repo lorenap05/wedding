@@ -14,10 +14,16 @@
         <nav>
           <%= link_to "RSVPs", admin_rsvps_path %>
           <%= link_to "Presentes", admin_gifts_path %>
+          <%= link_to "Configurações", edit_admin_settings_path %>
           <%= button_to "Sair", admin_logout_path, method: :delete, class: "inline-button" %>
         </nav>
       <% end %>
     </header>
-    <main class="admin-main"><%= yield %></main>
+    <main class="admin-main">
+      <% flash.each do |key, message| %>
+        <p class="flash <%= key %>"><%= message %></p>
+      <% end %>
+      <%= yield %>
+    </main>
   </body>
 </html>

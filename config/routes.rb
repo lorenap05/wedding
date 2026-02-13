@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     resources :gifts
     resources :rsvps, only: :index
+    resource :settings, only: %i[edit update], controller: "settings"
     root "rsvps#index"
   end
 end

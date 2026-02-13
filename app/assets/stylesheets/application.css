@@ -167,8 +167,27 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .gifts-button:hover { background: #dfe6da; color: #2a3225; }
 
 .footer-photo { position: relative; background: url('/assets/wedding/end.jpg'); color:#fff; min-height: 100vh; background-size: cover; background-position: center; }
-.footer-title-box { position: absolute; left: 50%; bottom: 2rem; transform: translateX(-50%); background: rgba(0, 0, 0, 0.58); padding: 0 0.5rem; display: inline-block; white-space: nowrap; }
-.footer-title-box h2 { margin: 0; color: #fff; text-align: center; line-height: 1; }
+.footer-bottom-center { position: absolute; left: 0; right: 0; bottom: 2rem; text-align: center; }
+.footer-title-box { background: rgba(0, 0, 0, 0.5); padding: 1; display: inline-block; line-height: 0; }
+.footer-title-box h3 { margin: 0; color: #fff; text-align: center; line-height: 1; display: inline-block; }
+.footer-button-container { display: flex; justify-content: center; width: 100%; }
+
+.hidden-admin-login {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background: #000;
+  color: #000;
+  border: 1px solid #000;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.35rem;
+  text-decoration: none;
+  opacity: 0.92;
+}
+.hidden-admin-login:hover {
+  background: #000;
+  color: #111;
+}
 
 .simple-page { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; background: var(--green-1); color: #fff; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; }
 .simple-page h1 { color: #fff; text-align: center; font-family: var(--font-title); font-size: clamp(2.8rem, 4.7vw, 5rem); }
