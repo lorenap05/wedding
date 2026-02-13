@@ -1,23 +1,23 @@
-<section class="simple-page">
+<section class="admin-section admin-form-section">
   <h2>Configurações da conta admin</h2>
   <p>Use esta tela para trocar a senha antes de publicar o site.</p>
 
-  <%= form_with model: @admin_user, url: admin_settings_path, method: :patch, local: true, class: "card-form" do |f| %>
-    <div>
+  <%= form_with model: @admin_user, url: admin_settings_path, method: :patch, local: true, class: "admin-form" do |f| %>
+    <div class="admin-form-field">
       <%= f.label :current_password, "Senha atual" %>
       <%= f.password_field :current_password, required: true %>
     </div>
 
-    <div>
+    <div class="admin-form-field">
       <%= f.label :password, "Nova senha" %>
       <%= f.password_field :password, required: true, minlength: 8 %>
     </div>
 
-    <div>
+    <div class="admin-form-field">
       <%= f.label :password_confirmation, "Confirmar nova senha" %>
       <%= f.password_field :password_confirmation, required: true, minlength: 8 %>
     </div>
 
-    <%= f.submit "Salvar nova senha", class: "cta" %>
+    <%= f.submit "Salvar nova senha", class: "btn btn-light" %>
   <% end %>
 </section>

@@ -1,7 +1,17 @@
-<h2>Presentes cadastrados</h2>
-<%= link_to "Novo presente", new_admin_gift_path, class: "cta" %>
-<ul>
-  <% @gifts.each do |gift| %>
-    <li><%= link_to gift.name, admin_gift_path(gift) %> - <%= gift.formatted_price %></li>
-  <% end %>
-</ul>
+<section class="admin-section">
+  <div class="admin-section-header">
+    <h2>Presentes cadastrados</h2>
+    <%= link_to "Novo presente", new_admin_gift_path, class: "btn btn-light" %>
+  </div>
+
+  <div class="admin-list-card">
+    <ul class="admin-clean-list">
+      <% @gifts.each do |gift| %>
+        <li>
+          <span><%= gift.name %> — <%= gift.formatted_price %></span>
+          <%= link_to "Abrir", admin_gift_path(gift), class: "admin-inline-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>

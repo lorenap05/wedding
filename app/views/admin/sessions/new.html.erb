@@ -1,14 +1,18 @@
-<section class="simple-page">
-  <h2>Entrar no painel</h2>
-  <%= form_with url: admin_login_path, local: true, class: "card-form" do |f| %>
-    <div>
-      <%= label_tag :email, "E-mail" %>
-      <%= email_field_tag :email, nil, required: true %>
-    </div>
-    <div>
-      <%= label_tag :password, "Senha" %>
-      <%= password_field_tag :password, nil, required: true %>
-    </div>
-    <%= submit_tag "Entrar", class: "cta" %>
-  <% end %>
+<section class="admin-auth-page">
+  <div class="admin-auth-card">
+    <h2>Entrar no painel</h2>
+    <p>Use seu e-mail e senha para acessar as configurações do casamento.</p>
+
+    <%= form_with url: admin_login_path, local: true, class: "admin-form" do %>
+      <div class="admin-form-field">
+        <%= label_tag :email, "E-mail" %>
+        <%= email_field_tag :email, nil, required: true %>
+      </div>
+      <div class="admin-form-field">
+        <%= label_tag :password, "Senha" %>
+        <%= password_field_tag :password, nil, required: true %>
+      </div>
+      <%= submit_tag "Entrar", class: "btn btn-light" %>
+    <% end %>
+  </div>
 </section>

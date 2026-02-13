@@ -7,24 +7,52 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
-  <body class="admin-page">
-    <header class="admin-header">
-      <h1>Painel administrativo</h1>
-      <% if session[:admin_user_id] %>
-        <nav>
-          <%= link_to "RSVPs", admin_rsvps_path %>
-          <%= link_to "Presentes", admin_gifts_path %>
-          <%= link_to "Configurações", edit_admin_settings_path %>
-          <%= button_to "Sair", admin_logout_path, method: :delete, class: "inline-button" %>
-        </nav>
-      <% end %>
+  <body class="admin-page page-admin-<%= controller_name %>-<%= action_name %>">
+    <header class="fixed-header admin-fixed-header">
+      <div class="admin-shell admin-header-inner">
+        <button class="hamburger" id="admin-hamburger-menu" aria-label="Abrir menu" aria-expanded="false" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <span class="admin-fixed-title">Painel administrativo</span>
+      </div>
     </header>
-    <main class="admin-main">
+
+    <nav class="mobile-menu admin-mobile-menu" id="admin-mobile-menu">
+      <div class="admin-shell">
+        <ul>
+          <% if session[:admin_user_id] %>
+            <li><%= link_to "RSVPs", admin_rsvps_path %></li>
+            <li><%= link_to "Presentes", admin_gifts_path %></li>
+            <li><%= link_to "Configurações", edit_admin_settings_path %></li>
+            <li><%= button_to "Sair", admin_logout_path, method: :delete, class: "inline-button admin-logout-button" %></li>
+          <% else %>
+            <li><%= link_to "Entrar", admin_login_path %></li>
+            <li><%= link_to "Voltar ao site", root_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="admin-shell admin-main admin-main--spaced">
       <% flash.each do |key, message| %>
         <p class="flash <%= key %>"><%= message %></p>
       <% end %>
       <%= yield %>
     </main>
+
+    <script>
+      (function() {
+        const button = document.getElementById('admin-hamburger-menu');
+        const menu = document.getElementById('admin-mobile-menu');
+        if (!button || !menu) return;
+
+        button.addEventListener('click', function() {
+          const isActive = menu.classList.toggle('active');
+          button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        });
+      })();
+    </script>
   </body>
 </html>
-
