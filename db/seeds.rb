@@ -1,9 +1,16 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+AdminUser.find_or_create_by!(email: "admin@casamento.com") do |admin|
+  admin.password = "trocar-essa-senha"
+  admin.password_confirmation = "trocar-essa-senha"
+end
+
+[
+  ["Jantar romântico", 250.00],
+  ["Jogo de panelas", 399.90],
+  ["Air fryer", 550.00]
+].each do |name, price|
+  Gift.find_or_create_by!(name: name) do |gift|
+    gift.price = price
+    gift.image_url = "https://placehold.co/600x400?text=#{CGI.escape(name)}"
+    gift.description = "Descrição editável do presente #{name}."
+  end
+end
