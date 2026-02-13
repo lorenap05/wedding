@@ -75,6 +75,11 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
+/* Hide floating RSVP shortcut on RSVP page */
+.page-rsvps-new .floating-rsvp-btn {
+  display: none !important;
+}
+
 .mobile-menu {
   display: none;
   position: fixed;
@@ -225,7 +230,7 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
 
 /* RSVP public page */
 .rsvp-page {
-  background: linear-gradient(180deg, var(--green-2) 0%, var(--green-3) 60%, var(--green-5) 100%);
+  background: linear-gradient(180deg, var(--green-2) 0%, var(--green-1) 60%, #6d7b61 100%);
   min-height: 100vh;
   padding: 4rem 1.5rem 0;
 }
@@ -245,33 +250,44 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
   font-family: var(--font-title);
   font-size: clamp(2.8rem, 5vw, 4.8rem);
   margin-bottom: .5rem;
+  color: #fff;
 }
 
+.rsvp-header p { color: #fff; }
+
 .rsvp-form {
-  background: rgba(255, 255, 255, 0.92);
-  border: 2px solid var(--green-4);
+  background: rgba(17, 24, 16, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 14px;
   padding: 1.3rem;
   display: grid;
   gap: 1rem;
 }
 
-.rsvp-field label { color: #1e251b; display: block; margin-bottom: .35rem; }
-.rsvp-field input[type="text"] { width: 100%; padding: .8rem; border: 1px solid var(--green-3); border-radius: 8px; }
+.rsvp-field label { color: #fff; display: block; margin-bottom: .35rem; }
+.rsvp-field input[type="text"] {
+  width: 100%;
+  padding: .8rem;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 8px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+}
+.rsvp-field input[type="text"]::placeholder { color: rgba(255,255,255,.75); }
 
 .rsvp-choice-group {
-  border: 1px solid var(--green-3);
+  border: 1px solid rgba(255,255,255,.4);
   border-radius: 10px;
   padding: .9rem;
-  background: #f8faf6;
+  background: rgba(255,255,255,.08);
 }
 
-.rsvp-choice-group legend { color: #2d3528; font-weight: 700; }
-.rsvp-choice { display: flex; gap: .6rem; align-items: center; margin-top: .5rem; color: #1d231b; }
+.rsvp-choice-group legend { color: #fff; font-weight: 700; }
+.rsvp-choice { display: flex; gap: .6rem; align-items: center; margin-top: .5rem; color: #fff; }
 
 .rsvp-submit {
-  border: none;
-  background: var(--green-1);
+  border: 1px solid #fff;
+  background: transparent;
   color: #fff;
   font-family: var(--font-title);
   font-weight: 700;
@@ -279,6 +295,8 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
   border-radius: 10px;
   cursor: pointer;
 }
+
+.rsvp-submit:hover { background: rgba(255,255,255,.14); }
 
 .rsvp-bottom-photo {
   margin-top: 2rem;
@@ -336,3 +354,91 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
 
 .attendance-badge.yes { background: #d9f3d3; color: #21561a; }
 .attendance-badge.no { background: #ffdede; color: #7d1f1f; }
+
+
+/* Bootstrap-like fallback button styles */
+.btn { display:inline-block; padding:.7rem 1.2rem; border-radius:8px; text-decoration:none; font-family: var(--font-title); font-weight:700; border:1px solid transparent; cursor:pointer; }
+.btn-light { background:#f8f9fa; color:#212529; border-color:#f8f9fa; }
+.btn-light:hover { background:#e2e6ea; border-color:#dae0e5; color:#212529; }
+
+/* Gift payment popups */
+.gift-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 2000;
+}
+
+.gift-modal.active {
+  display: block;
+}
+
+.gift-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.gift-modal-card {
+  position: relative;
+  max-width: 620px;
+  width: calc(100% - 2rem);
+  margin: 6vh auto 0;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.3rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.gift-modal-close {
+  position: absolute;
+  top: .4rem;
+  right: .6rem;
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gift-modal-item {
+  margin: .2rem 0;
+  font-weight: 700;
+}
+
+.gift-modal-qr-wrap {
+  border: 1px dashed var(--green-2);
+  margin: 1rem auto;
+  padding: .8rem;
+  max-width: 360px;
+}
+
+.gift-modal-qr {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.gift-modal-text {
+  color: #24301f;
+  line-height: 1.5;
+}
+
+.gift-modal-confirm {
+  border: 1px solid var(--green-2);
+  background: var(--green-2);
+  color: #fff;
+  padding: .65rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gift-modal-thank-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: .8rem;
+}

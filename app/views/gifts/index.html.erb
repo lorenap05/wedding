@@ -4,7 +4,7 @@
     ["Fundo não vamos chorar no primeiro mercado", 480],
     ["Nos ajude a pagar nossa dívida estudantil", 340],
     ["Café suficiente para manter o Lukas consciente", 300],
-    ["Plano anti-miojo (porque a Lorena realmente não sabe cozinhar)", 290],
+    ["Plano anti-miojo (porque Lorena realmente não sabe cozinhar)", 290],
     ["Kit de energético para sobreviver a 4h de sono por noite", 270],
     ["Primeira compra aleatória que esquecemos que precisávamos", 260],
     ["Reserva para as plantas novas", 250],
@@ -26,9 +26,9 @@
     .map do |(title, price), index|
       {
         name: title,
+        description: "Presente em formato de contribuição para a nossa mudança.",
         price: format("R$ %d", price),
-        image_url: image_path("wedding/gifts/gift_#{index + 1}.png"),
-        link: "#"
+        image_url: "/assets/wedding/gifts/gift_#{index + 1}.png"
       }
     end
 
@@ -39,8 +39,7 @@
   <div class="giftspage-container">
     <header class="giftspage-header">
       <h1>Lista de presentes</h1>
-      <p>Escolha um item simbólico para nos ajudar com a nossa mudança para São Francisco e sobreviver às longas horas de trabalho do Lukas e falta de habilidade da Lorena na cozinha</p>
-      <p>Você verá a página de pagamento ao clicar em “Comprar”</p>
+      <p>Escolha um item para nos presentear. Ao clicar em “Comprar”, abriremos o QR Code para pagamento.</p>
     </header>
 
     <div class="giftspage-columns">
@@ -51,10 +50,91 @@
             <h2><%= item[:name] %></h2>
             <p class="giftspage-desc"><%= item[:description] %></p>
             <p class="giftspage-price"><%= item[:price] %></p>
-            <%= link_to "Comprar", item[:link], class: "giftspage-buy" %>
+            <button type="button" class="giftspage-buy js-open-payment" data-gift-name="<%= item[:name] %>" data-gift-price="<%= item[:price] %>">Comprar</button>
           </article>
         <% end %>
       <% end %>
     </div>
   </div>
 </section>
+
+<div class="gift-modal" id="payment-modal" aria-hidden="true">
+  <div class="gift-modal-backdrop js-close-payment"></div>
+  <div class="gift-modal-card" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title">
+    <button type="button" class="gift-modal-close js-close-payment" aria-label="Fechar">×</button>
+    <h3 id="payment-modal-title">Pagamento via Pix</h3>
+    <p class="gift-modal-item" id="payment-gift-name">Item</p>
+    <p class="gift-modal-item" id="payment-gift-price">Valor</p>
+
+    <div class="gift-modal-qr-wrap">
+      <img src="/assets/wedding/qr_code.png" alt="QR Code para pagamento" class="gift-modal-qr" loading="lazy">
+    </div>
+
+    <p class="gift-modal-text">Você está prestes a nos enviar um Pix para nossa conta para nos presentear com este item. Muito obrigado pelo carinho!</p>
+
+    <button type="button" class="gift-modal-confirm js-open-thanks">Pagamento efetuado</button>
+  </div>
+</div>
+
+<div class="gift-modal" id="thanks-modal" aria-hidden="true">
+  <div class="gift-modal-backdrop js-close-thanks"></div>
+  <div class="gift-modal-card" role="dialog" aria-modal="true" aria-labelledby="thanks-modal-title">
+    <button type="button" class="gift-modal-close js-close-thanks" aria-label="Fechar">×</button>
+    <h3 id="thanks-modal-title">Obrigado!</h3>
+    <p class="gift-modal-text">Recebemos sua confirmação de pagamento. Obrigado por fazer parte desse momento com a gente!</p>
+    <img src="/assets/wedding/thank_you.png" alt="Obrigado" class="gift-modal-thank-image" loading="lazy">
+  </div>
+</div>
+
+<script>
+  (function() {
+    const paymentModal = document.getElementById('payment-modal');
+    const thanksModal = document.getElementById('thanks-modal');
+    const paymentName = document.getElementById('payment-gift-name');
+    const paymentPrice = document.getElementById('payment-gift-price');
+
+    if (!paymentModal || !thanksModal) return;
+
+    const openPaymentButtons = document.querySelectorAll('.js-open-payment');
+    const closePaymentButtons = document.querySelectorAll('.js-close-payment');
+    const closeThanksButtons = document.querySelectorAll('.js-close-thanks');
+    const openThanksButton = document.querySelector('.js-open-thanks');
+
+    function openModal(modal) {
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      if (!paymentModal.classList.contains('active') && !thanksModal.classList.contains('active')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    openPaymentButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        paymentName.textContent = button.dataset.giftName || 'Item selecionado';
+        paymentPrice.textContent = button.dataset.giftPrice || '';
+        openModal(paymentModal);
+      });
+    });
+
+    closePaymentButtons.forEach(function(button) {
+      button.addEventListener('click', function() { closeModal(paymentModal); });
+    });
+
+    if (openThanksButton) {
+      openThanksButton.addEventListener('click', function() {
+        closeModal(paymentModal);
+        openModal(thanksModal);
+      });
+    }
+
+    closeThanksButtons.forEach(function(button) {
+      button.addEventListener('click', function() { closeModal(thanksModal); });
+    });
+  })();
+</script>
