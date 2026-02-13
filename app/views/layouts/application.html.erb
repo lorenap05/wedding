@@ -30,7 +30,7 @@
       </ul>
     </nav>
 
-    <%= link_to "RSVP", new_rsvp_path, class: "btn btn-light floating-rsvp-btn" %>
+    <%= link_to "RSVP", "/rsvps/new", class: "btn btn-light floating-rsvp-btn" %>
 
     <% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><% end %>
     <% if flash[:alert] %><p class="flash alert"><%= flash[:alert] %></p><% end %>

@@ -50,7 +50,7 @@
             <h2><%= item[:name] %></h2>
             <p class="giftspage-desc"><%= item[:description] %></p>
             <p class="giftspage-price"><%= item[:price] %></p>
-            <button type="button" class="giftspage-buy js-open-payment" data-gift-name="<%= item[:name] %>" data-gift-price="<%= item[:price] %>">Comprar</button>
+            <button type="button" class="btn btn-light giftspage-buy js-open-payment" data-gift-name="<%= item[:name] %>" data-gift-price="<%= item[:price] %>">Comprar</button>
           </article>
         <% end %>
       <% end %>

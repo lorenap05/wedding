@@ -61,11 +61,12 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
   position: fixed;
   right: 2rem;
   top: 2rem;
+  pointer-events: auto;
   padding: 1rem 1.5rem !important;
   font-size: 1rem !important;
   font-family: var(--font-title) !important;
   font-weight: 700 !important;
-  z-index: 900;
+  z-index: 1200;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
@@ -73,11 +74,6 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .floating-rsvp-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-/* Hide floating RSVP shortcut on RSVP page */
-.page-rsvps-new .floating-rsvp-btn {
-  display: none !important;
 }
 
 .mobile-menu {
@@ -167,7 +163,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .gifts-photo { display: block; width: 100%; aspect-ratio: 1/1; object-fit: cover; }
 .gifts-title { font-family: var(--font-title); color: #fff; font-size: clamp(3rem, 4.8vw, 4.7rem); line-height: 1; margin: 0 0 1.5rem; font-weight: 500; }
 .gifts-text { font-family: var(--font-body); color: #fff; font-size: clamp(1.2rem, 1.35vw, 1.8rem); line-height: 1.7; margin: 0 0 2rem; }
-.gifts-button { display: inline-block; border: 1px solid #dfe6da; color: #fff; text-decoration: none; font-family: var(--font-body); font-size: clamp(1rem, 1.2vw, 1.25rem); padding: .8rem 1.4rem; transition: .2s ease; }
+.gifts-button { display: inline-block; border: 1px solid #dfe6da; color: #fff; text-decoration: none; font-family: var(--font-body); font-size: clamp(1rem, 1.2vw, 1.25rem); padding: .8rem 1.4rem; transition: .2s ease; background: transparent; }
 .gifts-button:hover { background: #dfe6da; color: #2a3225; }
 
 .footer-photo { background: #111; color:#fff; min-height: 100vh; background-size: cover; background-position: center; display:flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 4rem 2rem 2rem; }
@@ -212,8 +208,8 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
 .giftspage-card h2 { color: #fff; margin: .75rem 0 .35rem; font-family: var(--font-title); font-size: clamp(1.6rem, 2vw, 2.1rem); line-height: 1.1; }
 .giftspage-desc { margin: 0 0 .55rem; line-height: 1.45; }
 .giftspage-price { margin: 0 0 .85rem; font-weight: 700; }
-.giftspage-buy { display: inline-block; padding: .55rem 1rem; border: 1px solid #dfe6da; color: #fff; text-decoration: none; }
-.giftspage-buy:hover { background: #dfe6da; color: #2b3325; }
+.giftspage-buy { margin-top: .2rem; }
+.giftspage-buy:hover { opacity: .95; }
 
 @media (max-width: 800px) {
   .split, .reverse,
@@ -230,7 +226,10 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
 
 /* RSVP public page */
 .rsvp-page {
-  background: linear-gradient(180deg, var(--green-2) 0%, var(--green-1) 60%, #6d7b61 100%);
+  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('/assets/wedding/rsvp_2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 100vh;
   padding: 4rem 1.5rem 0;
 }
@@ -256,7 +255,7 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
 .rsvp-header p { color: #fff; }
 
 .rsvp-form {
-  background: rgba(17, 24, 16, 0.35);
+  background: rgba(17, 24, 16, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 14px;
   padding: 1.3rem;
@@ -265,6 +264,8 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
 }
 
 .rsvp-field label { color: #fff; display: block; margin-bottom: .35rem; }
+
+.rsvp-form p { color: #fff; margin: 0 0 .2rem; }
 .rsvp-field input[type="text"] {
   width: 100%;
   padding: .8rem;
@@ -279,7 +280,7 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
   border: 1px solid rgba(255,255,255,.4);
   border-radius: 10px;
   padding: .9rem;
-  background: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.18);
 }
 
 .rsvp-choice-group legend { color: #fff; font-weight: 700; }
@@ -442,3 +443,6 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
   border-radius: 10px;
   margin-top: .8rem;
 }
+
+.giftspage-card .btn-light { background:#f8f9fa; color:#212529; border-color:#f8f9fa; }
+.giftspage-card .btn-light:hover { background:#e2e6ea; color:#212529; border-color:#dae0e5; }
