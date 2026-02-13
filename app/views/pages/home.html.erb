@@ -67,21 +67,23 @@
 
 <section class="gifts-section">
   <div class="gifts-container">
-    <h2 class="gifts-title">Presentes</h2>
-    <p class="gifts-text">A presença de vocês no nosso grande dia já é tudo o que poderíamos desejar.</p> 
-    <p class="gifts-text">Mas, se ainda assim quiserem nos presentear, receberemos com muito carinho.</p>
+    <div class="gifts-content">
+      <h2 class="gifts-title">Presentes</h2>
+      <p class="gifts-text">Estamos nos mudando para São Francisco e não conseguiremos levar nada de Belo Horizonte para lá.<br>
+      Se desejar nos presentear, veja nossa lista.</p>
 
-    <%= link_to "Ver lista de presentes", gifts_path, class: "gifts-button" %>
+      <%= link_to "Ver lista de presentes", gifts_path, class: "gifts-button" %>
+    </div>
+
+    <div class="gifts-photo-frame">
+      <%= image_tag "gift.jpg", alt: "Presente embrulhado", class: "gifts-photo" %>
+    </div>
   </div>
 </section>
 
-
-<section class="center-cta">
-  <div class="container center">
-    <%= link_to "Próximo passo", new_rsvp_path, class: "btn btn-light cta-large" %>
+<section class="footer-photo" style="background-image: url('<%= asset_path("wedding/end.jpg") %>');">
+  <div class="footer-button-container">
+    <%= link_to "Confirmar presença", new_rsvp_path, class: "btn btn-outline-light" %>
   </div>
-</section>
-
-<section class="footer-photo">
-  <h2>Te esperamos lá</h2>
+  <h3>Te esperamos lá</h3>
 </section>
