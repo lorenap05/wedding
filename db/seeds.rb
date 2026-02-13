@@ -6,10 +6,10 @@ AdminUser.find_or_create_by!(email: admin_email) do |admin|
   admin.password_confirmation = admin_password if admin.respond_to?(:password_confirmation=)
 end
 
-AdminUser.find_or_create_by!(email: "bob@example.com") do |admin|
-  admin.password = "12345"
-  admin.password_confirmation = "12345" if admin.respond_to?(:password_confirmation=)
-end
+# AdminUser.find_or_create_by!(email: "bob@example.com") do |admin|
+  # admin.password = "12345"
+  # admin.password_confirmation = "12345" if admin.respond_to?(:password_confirmation=)
+# end
 
 official_gifts = [
   ["Plano oficial para o Lukas não dormir no chão (porque ele já não vai dormir mesmo)", 540],
