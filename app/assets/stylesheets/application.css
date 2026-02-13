@@ -10,13 +10,15 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; font-family: var(--font-body); background: #758467; color: #151515; }
-.fixed-header { position: fixed; top: 0; left: 0; right: 0; background: transparent; color: #fff; padding: 1rem 2rem; z-index: 1000; display: flex; align-items: center; height: 70px; }
+.fixed-header { position: fixed; top: 0; left: 0; right: 0; background: transparent; color: #fff; padding: 1rem 2rem; z-index: 1000; display: flex; align-items: center; justify-content: space-between; height: 70px; }
 .hamburger { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 6px; padding: 0; width: 30px; height: 25px; }
+.floating-rsvp-btn { position: fixed; right: 2rem; top: 2rem; padding: 1rem 1.5rem !important; font-size: 1rem !important; font-family: "Cormorant Garamond", serif !important; font-weight: 700 !important; z-index: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+.floating-rsvp-btn:hover { transform: scale(1.05); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
 .hamburger span { width: 100%; height: 3px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
 .hamburger:hover span { background: #ddd; }
 .mobile-menu { display: none; position: fixed; top: 70px; left: 0; color: #fff; list-style: none; margin: 0; padding: 0; z-index: 999; min-width: fit-content; }
 .mobile-menu.active { display: block; }
-.mobile-menu ul { list-style: none; margin: 0; padding: 1rem 2rem; }
+.mobile-menu ul { list-style: none; margin: 0; padding: 1rem 2rem; background: rgba(255, 255, 255, 0.15); }
 .mobile-menu li { margin: 1rem 0; }
 .mobile-menu a { color: #fff; text-decoration: none; font-size: 1.1rem; font-family: var(--font-body); }
 .mobile-menu a:hover { color: #ddd; }
@@ -25,7 +27,8 @@ h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); margin
 h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-bottom: 1rem; }
 .hero { position: relative; min-height: 100vh; background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url('hero.png'); background-size: cover; display:flex; align-items:flex-end; }
 .overlay { color: #fff; padding: 4rem; }
-.cta { display:inline-block; padding: .8rem 1.4rem; border: 1px solid #fff; color: inherit; text-decoration:none; margin-top:1rem; background: transparent; cursor:pointer; }
+.cta { display:inline-block; padding: .8rem 1.4rem; border: 1px solid #fff; color: inherit; text-decoration:none; margin-top:1rem; background: transparent; cursor:pointer; font-family: "Cormorant Garamond", serif; font-weight: 700; }
+.card-form .cta { border: 1px solid #000; color: #000; font-size: 1.1rem; padding: 0.75rem 1.5rem; }
 .container { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
 .story-section {
   background: var(--green-5);
@@ -194,10 +197,11 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .footer-photo { background: #111; color:#fff; min-height: 100vh; background-size: cover; background-position: center; display:flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 4rem 2rem 2rem; }
 .footer-button-container { display: flex; justify-content: center; width: 100%; }
 .simple-page { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; background: #758467; color: #fff; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; }
-.simple-page h1 { color: #fff; }
+.simple-page h1 { color: #fff; text-align: center; font-family: var(--font-title); font-size: clamp(2.8rem, 4.7vw, 5rem); }
 .simple-page legend { color: #fff; }
-.card-form { background: #fff; padding: 1.2rem; border-radius: 8px; display:grid; gap: 1rem; }
-.card-form input, .card-form textarea { width:100%; padding:.6rem; }
+.card-form { background: #fff; padding: 1.2rem; border-radius: 8px; display:grid; gap: 1rem; color: #000; }
+.card-form input, .card-form textarea { width:100%; padding:.6rem; color: #000; }
+.card-form label { color: #000; }
 .gifts-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -253,14 +257,115 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
   padding: .8rem 1.4rem;
   transition: .2s ease;
 }
+.giftspage-wrap {
+  background: var(--green-1);
+  min-height: 100vh;
+  padding: 4.5rem 0 5rem;
+  color: #fff;
+}
 
+.giftspage-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.giftspage-header {
+  margin-bottom: 2.2rem;
+  text-align: center;
+}
+
+.giftspage-header h1 {
+  margin: 0 0 .9rem;
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: clamp(2.8rem, 4.7vw, 5rem);
+  line-height: 1.05;
+}
+
+.giftspage-header p {
+  margin: 0 auto;
+  max-width: 760px;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+  line-height: 1.6;
+}
+
+.giftspage-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.giftspage-column {
+  display: grid;
+  gap: 1rem;
+}
+
+.giftspage-card {
+  background: rgba(223, 230, 218, 0.12);
+  border: 1px solid rgba(223, 230, 218, 0.5);
+  padding: .95rem;
+}
+
+.giftspage-photo {
+  width: 5.5in;
+  height: 5.5in;
+  max-width: 100%;
+  object-fit: cover;
+  border: 1px solid #dfe6da;
+  display: block;
+  margin: 0 auto;
+}
+.giftspage-photo--placeholder {
+  display: grid;
+  place-items: center;
+  background: rgba(223, 230, 218, 0.2);
+  color: #f4f7f2;
+  font-size: .95rem;
+}
+
+.giftspage-card h2 {
+  color: #fff;
+  margin: .75rem 0 .35rem;
+  font-family: var(--font-title);
+  font-size: clamp(1.6rem, 2vw, 2.1rem);
+  line-height: 1.1;
+}
+
+.giftspage-desc {
+  margin: 0 0 .55rem;
+  line-height: 1.45;
+}
+
+.giftspage-price {
+  margin: 0 0 .85rem;
+  font-weight: 700;
+}
+
+.giftspage-buy {
+  display: inline-block;
+  padding: .55rem 1rem;
+  border: 1px solid #dfe6da;
+  color: #fff;
+  text-decoration: none;
+}
+
+.giftspage-buy:hover {
+  background: #dfe6da;
+  color: #2b3325;
+}
+
+@media (max-width: 800px) {
+  .giftspage-columns {
+    grid-template-columns: 1fr;
+  }
+}
 .gifts-button:hover {
   background: #dfe6da;
   color: #2a3225;
 .gift-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; }
 .gift-card { background:#fff; border-radius:8px; padding:1rem; }
 .gift-card img { width:100%; border-radius:6px; height:180px; object-fit:cover; }
-.rsvp-btn { position: absolute; top: 2rem; right: 2rem; padding: 0.75rem 1.75rem !important; font-size: 1.1rem !important; font-family: "Cormorant Garamond", serif !important; font-weight: 700 !important; z-index: 100; }
 .flash { margin: 0; padding: .8rem 1rem; }
 .notice { background: #e8f5e4; }
 .alert { background: #f9d9d9; }
@@ -276,105 +381,4 @@ th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
 @media (max-width: 800px) {
   .split, .reverse { grid-template-columns: 1fr; }
   .overlay { padding: 2rem; }
-}
-
-.gifts-page {
-  background: #758467;
-  color: #fff;
-  min-height: 100vh;
-  padding: 4.8rem 0 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gifts-page-container {
-  max-width: 1220px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
-}
-
-.gifts-page-header {
-  margin-bottom: 2.4rem;
-  text-align: center;
-}
-
-.gifts-page-header h1 {
-  font-family: var(--font-title);
-  color: #fff;
-  margin: 0 0 1rem;
-  font-size: clamp(3rem, 5vw, 5rem);
-}
-
-.gifts-page-header p {
-  max-width: 760px;
-  margin: 0 auto;
-  font-size: clamp(1rem, 1.25vw, 1.35rem);
-  line-height: 1.6;
-  color: #fff;
-}
-
-.gifts-columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-.gifts-column {
-  display: grid;
-  gap: 1.1rem;
-}
-
-.gift-list-item {
-  background: rgba(223, 230, 218, 0.12);
-  border: 1px solid rgba(223, 230, 218, 0.45);
-  padding: 1rem;
-}
-
-.gift-list-item h2 {
-  color: #fff;
-  margin: .8rem 0 .4rem;
-  font-size: clamp(1.5rem, 2vw, 2rem);
-}
-
-.gift-item-photo {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border: 1px solid #dfe6da;
-}
-
-.gift-item-photo.placeholder {
-  display: grid;
-  place-items: center;
-  background: rgba(223, 230, 218, 0.2);
-  color: #f4f7f2;
-  font-size: .95rem;
-}
-
-.gift-item-description {
-  margin: 0 0 .6rem;
-  line-height: 1.45;
-  color: #fff;
-}
-
-.gift-item-price {
-  margin: 0 0 .9rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.gift-item-button {
-  display: inline-block;
-  border: 1px solid #dfe6da;
-  color: #fff;
-  text-decoration: none;
-  padding: .55rem 1rem;
-  background: transparent;
-}
-
-.gift-item-button:hover {
-  background: #dfe6da;
-  color: #2b3325;
 }
