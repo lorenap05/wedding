@@ -1,0 +1,7 @@
+<%= form_with model: [:admin, @gift], local: true, class: "card-form" do |f| %>
+  <div><%= f.label :name, "Nome" %><%= f.text_field :name, required: true %></div>
+  <div><%= f.label :price, "Preço" %><%= f.number_field :price, step: 0.01, required: true %></div>
+  <div><%= f.label :image_url, "URL da imagem" %><%= f.url_field :image_url %></div>
+  <div><%= f.label :description, "Descrição" %><%= f.text_area :description %></div>
+  <%= f.submit "Salvar", class: "cta" %>
+<% end %>

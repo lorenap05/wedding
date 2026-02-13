@@ -1,0 +1,13 @@
+<section class="simple-page">
+  <h1>Lista de presentes</h1>
+  <div class="gift-grid">
+    <% @gifts.each do |gift| %>
+      <article class="gift-card">
+        <img src="<%= gift.image_url.presence || 'https://placehold.co/600x400?text=Presente' %>" alt="<%= gift.name %>">
+        <h2><%= gift.name %></h2>
+        <p><%= gift.formatted_price %></p>
+        <%= link_to "Comprar item", gift_path(gift), class: "cta" %>
+      </article>
+    <% end %>
+  </div>
+</section>

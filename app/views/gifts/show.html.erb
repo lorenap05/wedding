@@ -1,0 +1,10 @@
+<section class="simple-page payment-page">
+  <h1>Pagamento do presente</h1>
+  <h2><%= @gift.name %> — <%= @gift.formatted_price %></h2>
+  <p>Escaneie o QR Code abaixo para concluir o pagamento.</p>
+
+  <div class="qr-placeholder">QR Code (placeholder)</div>
+  <p class="payment-text">Escreva aqui as instruções de pagamento que você quiser.</p>
+
+  <%= link_to "Voltar para lista", gifts_path, class: "cta" %>
+</section>

@@ -1,0 +1,7 @@
+<h2>Presentes cadastrados</h2>
+<%= link_to "Novo presente", new_admin_gift_path, class: "cta" %>
+<ul>
+  <% @gifts.each do |gift| %>
+    <li><%= link_to gift.name, admin_gift_path(gift) %> - <%= gift.formatted_price %></li>
+  <% end %>
+</ul>

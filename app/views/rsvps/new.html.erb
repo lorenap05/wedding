@@ -1,0 +1,17 @@
+<section class="simple-page">
+  <h1>Confirmar presença</h1>
+  <%= form_with model: @rsvp, local: true, class: "card-form" do |f| %>
+    <div>
+      <%= f.label :name, "Seu nome" %>
+      <%= f.text_field :name, required: true %>
+    </div>
+
+    <fieldset>
+      <legend>Você vai ao evento?</legend>
+      <label><%= f.radio_button :attending, true, required: true %> Sim</label>
+      <label><%= f.radio_button :attending, false, required: true %> Não</label>
+    </fieldset>
+
+    <%= f.submit "Enviar confirmação", class: "cta" %>
+  <% end %>
+</section>

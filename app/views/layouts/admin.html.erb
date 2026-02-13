@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Painel Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+  <body class="admin-page">
+    <header class="admin-header">
+      <h1>Painel administrativo</h1>
+      <% if session[:admin_user_id] %>
+        <nav>
+          <%= link_to "RSVPs", admin_rsvps_path %>
+          <%= link_to "Presentes", admin_gifts_path %>
+          <%= button_to "Sair", admin_logout_path, method: :delete, class: "inline-button" %>
+        </nav>
+      <% end %>
+    </header>
+    <main class="admin-main"><%= yield %></main>
+  </body>
+</html>

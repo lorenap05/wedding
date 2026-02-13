@@ -1,0 +1,5 @@
+<h2><%= @gift.name %></h2>
+<p><strong>Preço:</strong> <%= @gift.formatted_price %></p>
+<p><strong>Descrição:</strong> <%= @gift.description.presence || 'Sem descrição' %></p>
+<%= link_to "Editar", edit_admin_gift_path(@gift), class: "cta" %>
+<%= button_to "Excluir", admin_gift_path(@gift), method: :delete, class: "inline-button", form: { data: { turbo_confirm: "Deseja remover este presente?" } } %>

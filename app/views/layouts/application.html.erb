@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WeddingSite</title>
+    <title>Casamento Lukas e Lorena</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Calligraffitti&family=Special+Elite&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
+    <% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><% end %>
+    <% if flash[:alert] %><p class="flash alert"><%= flash[:alert] %></p><% end %>
     <%= yield %>
   </body>
 </html>
