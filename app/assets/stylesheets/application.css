@@ -124,6 +124,11 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .lunch-image { background: var(--green-5); padding: 0; }
 .lunch-image .container { padding: 0; max-width: 100%; }
 .lunch-image img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+.gifts-section {
+  background: var(--green-2);
+  color: #fff;
+  padding: 5.5rem 0;
+}
 .dresscode-section {
   background: var(--green-5);
   color: #121212;
@@ -243,7 +248,8 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .gift-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; }
 .gift-card { background:#fff; border-radius:8px; padding:1rem; }
 .gift-card img { width:100%; border-radius:6px; height:180px; object-fit:cover; }
-.rsvp-btn { position: fixed; top: 2rem; right: 2rem; z-index: 1000; padding: 0.75rem 1.75rem !important; font-size: 1.1rem !important; font-family: "Cormorant Garamond", serif !important; font-weight: 700 !important; }
+.floating-rsvp { position: fixed !important; top: 2rem !important; right: 2rem !important; z-index: 9999 !important; }
+.floating-rsvp a { padding: 0.75rem 1.75rem !important; font-size: 1.1rem !important; font-family: "Cormorant Garamond", serif !important; font-weight: 700 !important; }
 .flash { margin: 0; padding: .8rem 1rem; }
 .notice { background: #e8f5e4; }
 .alert { background: #f9d9d9; }
