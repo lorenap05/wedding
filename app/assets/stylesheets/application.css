@@ -1,15 +1,46 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+:root {
+  --green-1: #758467;
+  --green-2: #819171;
+  --green-3: #9caf88;
+  --green-4: #cbd5c0;
+  --green-5: #dfe6da;
+  --font-main: "Pinyon Script", cursive;
+  --font-title: "Calligraffitti", cursive;
+  --font-body: "Special Elite", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-body); background: var(--green-5); color: #151515; }
+h1 { font-family: var(--font-main); font-size: clamp(3rem, 8vw, 6rem); margin: 0; }
+h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1rem; }
+.hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url('https://placehold.co/1600x1000?text=Foto+Principal'); background-size: cover; display:flex; align-items:flex-end; }
+.overlay { color: #fff; padding: 4rem; }
+.cta { display:inline-block; padding: .8rem 1.4rem; border: 1px solid #fff; color: inherit; text-decoration:none; margin-top:1rem; background: transparent; cursor:pointer; }
+.container { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+.split { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; align-items:center; }
+.reverse { grid-template-columns: 1.3fr .7fr; }
+.light { background: var(--green-5); color: #181818; }
+.dark { background: var(--green-2); color: #fff; }
+.image-placeholder, .qr-placeholder { min-height: 280px; border: 3px solid var(--green-4); background: rgba(255,255,255,0.3); display:grid; place-items:center; padding:1rem; text-align:center; }
+.footer-photo { background: #111; color:#fff; min-height: 45vh; display:grid; place-items:end center; padding: 2rem; }
+.simple-page { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+.card-form { background: #fff; padding: 1.2rem; border-radius: 8px; display:grid; gap: 1rem; }
+.card-form input, .card-form textarea { width:100%; padding:.6rem; }
+.gift-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; }
+.gift-card { background:#fff; border-radius:8px; padding:1rem; }
+.gift-card img { width:100%; border-radius:6px; height:180px; object-fit:cover; }
+.flash { margin: 0; padding: .8rem 1rem; }
+.notice { background: #e8f5e4; }
+.alert { background: #f9d9d9; }
+.admin-header { background: var(--green-1); color:#fff; display:flex; justify-content:space-between; padding:1rem; align-items:center; }
+.admin-header nav { display:flex; gap:1rem; align-items:center; }
+.admin-header a { color:#fff; }
+.admin-main { padding: 1.5rem; }
+.inline-button { background: none; border: 1px solid currentColor; color: inherit; padding: .5rem .8rem; }
+
+table { width:100%; border-collapse: collapse; background:#fff; }
+th, td { border:1px solid #ddd; padding:.5rem; text-align:left; }
+
+@media (max-width: 800px) {
+  .split, .reverse { grid-template-columns: 1fr; }
+  .overlay { padding: 2rem; }
+}
