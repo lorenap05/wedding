@@ -157,7 +157,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .dresscode-text { font-family: var(--font-body); font-size: clamp(1.25rem, 1.45vw, 2rem); line-height: 1.55; margin: 0 0 1.7rem; color: #171717; }
 
 .gifts-section { background: var(--green-2); color: #fff; padding: 5.5rem 0; }
-.gifts-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem; align-items: center; }
+.gifts-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem; align-items: center; }
 .gifts-content { max-width: 470px; }
 .gifts-photo-frame { border: 2px solid #d6ded0; padding: .45rem; background: #8a9880; }
 .gifts-photo { display: block; width: 100%; aspect-ratio: 1/1; object-fit: cover; }
