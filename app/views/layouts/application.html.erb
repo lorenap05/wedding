@@ -15,8 +15,27 @@
   </head>
 
   <body>
+    <header class="fixed-header">
+      <button class="hamburger" id="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Lista de presentes", gifts_path %></li>
+          <li><%= link_to "Confirmar presença", new_rsvp_path %></li>
+        </ul>
+      </nav>
+    </header>
     <% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><% end %>
     <% if flash[:alert] %><p class="flash alert"><%= flash[:alert] %></p><% end %>
     <%= yield %>
+    <script>
+      document.getElementById('hamburger-btn').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('active');
+      });
+    </script>
   </body>
 </html>
