@@ -1,8 +1,12 @@
-<section class="hero">
+<section class="hero" style="background-image: url('<%= asset_path("wedding/hero.png") %>');">
   <div class="overlay">
-    <h1>Lukas e Lorena</h1>
-    <p>13 de junho de 2026</p>
-    <%= link_to "RSVP", new_rsvp_path, class: "cta" %>
+    <%= link_to "RSVP", new_rsvp_path, class: "rsvp-btn" %>
+  </div>
+</section>
+
+<section class="history" style="background-image: url('<%= asset_path("wedding/history.png") %>');">
+  <div class="overlay">
+    <%= link_to "RSVP", new_rsvp_path, class: "rsvp-btn" %>
   </div>
 </section>
 

@@ -12,7 +12,7 @@
 body { margin: 0; font-family: var(--font-body); background: var(--green-5); color: #151515; }
 h1 { font-family: var(--font-main); font-size: clamp(3rem, 8vw, 6rem); margin: 0; }
 h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1rem; }
-.hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url('https://placehold.co/1600x1000?text=Foto+Principal'); background-size: cover; display:flex; align-items:flex-end; }
+.hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url('hero.png'); background-size: cover; display:flex; align-items:flex-end; }
 .overlay { color: #fff; padding: 4rem; }
 .cta { display:inline-block; padding: .8rem 1.4rem; border: 1px solid #fff; color: inherit; text-decoration:none; margin-top:1rem; background: transparent; cursor:pointer; }
 .container { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
@@ -28,6 +28,9 @@ h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); margin
 .gift-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; }
 .gift-card { background:#fff; border-radius:8px; padding:1rem; }
 .gift-card img { width:100%; border-radius:6px; height:180px; object-fit:cover; }
+.overlay { position: relative; }
+.rsvp-btn { position: fixed; top: 2rem; right: 2rem; display: inline-block; padding: .8rem 1.4rem; border: 2px solid var(--green-1); color: var(--green-1); text-decoration: none; background: #fff; cursor: pointer; font-family: var(--font-body); font-weight: bold; z-index: 1000; }
+.rsvp-btn:hover { background: var(--green-1); color: #fff; }
 .flash { margin: 0; padding: .8rem 1rem; }
 .notice { background: #e8f5e4; }
 .alert { background: #f9d9d9; }
