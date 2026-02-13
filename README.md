@@ -1,25 +1,24 @@
-# Site de Casamento em Ruby on Rails
+# README
 
-Projeto inicial para site de casamento com:
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-- Página inicial inspirada no layout enviado
-- Página de RSVP (nome + presença) persistida em SQLite
-- Página de presentes com fluxo de pagamento por QR Code
-- Painel admin com login por e-mail/senha
+Things you may want to cover:
 
-## Pastas importantes
+* Ruby version
 
-- `app/assets/images/wedding/`: armazene aqui as fotos oficiais do site.
+* System dependencies
 
-## Configuração
+* Configuration
 
-1. Instale gems: `bundle install`
-2. Crie banco e rode migrations: `bin/rails db:setup`
-3. Rode o servidor: `bin/rails server`
+* Database creation
 
-## Acesso admin (seed)
+* Database initialization
 
-- E-mail: `admin@casamento.com`
-- Senha: `trocar-essa-senha`
+* How to run the test suite
 
-Altere imediatamente após o primeiro login.
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
