@@ -1,13 +1,70 @@
-<section class="simple-page">
-  <h1>Lista de presentes</h1>
-  <div class="gift-grid">
-    <% @gifts.each do |gift| %>
-      <article class="gift-card">
-        <img src="<%= gift.image_url.presence || 'https://placehold.co/600x400?text=Presente' %>" alt="<%= gift.name %>">
-        <h2><%= gift.name %></h2>
-        <p><%= gift.formatted_price %></p>
-        <%= link_to "Comprar item", gift_path(gift), class: "cta" %>
-      </article>
-    <% end %>
+<%
+  existing_items = @gifts.to_a
+  placeholder_count = [24 - existing_items.length, 0].max
+  placeholder_items = Array.new(placeholder_count) do |index|
+    {
+      name: "Presente #{index + 1}",
+      description: "Descrição do presente (edite este texto)",
+      price: "R$ 0,00",
+      link: "#"
+    }
+  end
+
+  gift_items = existing_items.map do |gift|
+    {
+      name: gift.name,
+      description: gift.description.presence || "Descrição do presente (edite este texto)",
+      price: gift.formatted_price,
+      link: gift_path(gift),
+      image_url: gift.image_url.presence
+    }
+  end + placeholder_items
+
+  left_column_items = gift_items.first(12)
+  right_column_items = gift_items.drop(12).first(12)
+%>
+
+<section class="gifts-page">
+  <div class="gifts-page-container">
+    <header class="gifts-page-header">
+      <h1>Lista de presentes</h1>
+      <p>Escolha um item para nos presentear. Você verá a página de pagamento ao clicar em “Comprar”.</p>
+    </header>
+
+    <div class="gifts-columns">
+      <div class="gifts-column">
+        <% left_column_items.each do |item| %>
+          <article class="gift-list-item">
+            <% if item[:image_url] %>
+              <img src="<%= item[:image_url] %>" alt="<%= item[:name] %>" class="gift-item-photo">
+            <% else %>
+              <div class="gift-item-photo placeholder">Foto do item</div>
+            <% end %>
+
+            <h2><%= item[:name] %></h2>
+            <p class="gift-item-description"><%= item[:description] %></p>
+            <p class="gift-item-price"><%= item[:price] %></p>
+            <%= link_to "Comprar", item[:link], class: "gift-item-button" %>
+          </article>
+        <% end %>
+      </div>
+
+      <div class="gifts-column">
+        <% right_column_items.each do |item| %>
+          <article class="gift-list-item">
+            <% if item[:image_url] %>
+              <img src="<%= item[:image_url] %>" alt="<%= item[:name] %>" class="gift-item-photo">
+            <% else %>
+              <div class="gift-item-photo placeholder">Foto do item</div>
+            <% end %>
+
+            <h2><%= item[:name] %></h2>
+            <p class="gift-item-description"><%= item[:description] %></p>
+            <p class="gift-item-price"><%= item[:price] %></p>
+            <%= link_to "Comprar", item[:link], class: "gift-item-button" %>
+          </article>
+        <% end %>
+      </div>
+    </div>
   </div>
 </section>
