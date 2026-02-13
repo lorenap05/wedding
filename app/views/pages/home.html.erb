@@ -1,41 +1,49 @@
-<section class="hero" style="background-image: url('<%= asset_path("wedding/hero.png") %>');">
+<section class="hero" style="background-image: url('<%= asset_path("wedding/hero.jpg") %>');">
   <div class="overlay">
-    <%= link_to "RSVP", new_rsvp_path, class: "rsvp-btn" %>
+    <%= link_to "RSVP", new_rsvp_path, class: "btn btn-light rsvp-btn" %>
   </div>
 </section>
 
-<section class="history" style="background-image: url('<%= asset_path("wedding/history.png") %>');">
-  <div class="overlay">
-    <%= link_to "RSVP", new_rsvp_path, class: "rsvp-btn" %>
-  </div>
-</section>
+<section class="story-section">
+  <div class="story-container">
+    <h2 class="story-title">A nossa história</h2>
 
-<section class="story light">
-  <div class="container split">
-    <div>
-      <h2>A nossa história</h2>
-      <p>Escreva aqui a história do casal. Este texto é um placeholder totalmente editável.</p>
+    <div class="story-text">
+      <p>Nós nos conhecemos há quatorze anos, no Ensino Médio, quando fazíamos simulações de conferências da ONU.</p>
+
+      <p>Em 2017, depois de uma dose líquida de coragem, demos o salto que transformou nossa relação. O que era uma amizade de muita cumplicidade nutriu um amor para toda a vida.</p>
+
+      <p>Desde então, dividimos a vida a dois, construindo nossos sonhos em conjunto. Hoje, celebramos nove anos de Lukas e Lorena na presença daqueles que mais amamos e iniciamos um novo capítulo desta jornada.</p>
     </div>
-    <div class="image-placeholder">Foto do casal</div>
-  </div>
-</section>
 
-<section class="event dark">
-  <div class="container split">
-    <div>
-      <h2>Um almoço em família</h2>
-      <p>Data: 13/06/2026<br>Horário: 11:30 às 17:30<br>Local: [editar endereço]</p>
+    <div class="story-gallery">
+      <div class="story-photo-frame">
+        <%= image_tag "wedding/history_1", alt: "Foto da história 1", class: "story-photo" %>
+      </div>
+      <div class="story-photo-frame">
+        <%= image_tag "wedding/history_2", alt: "Foto da história 2", class: "story-photo" %>
+      </div>
+      <div class="story-photo-frame">
+        <%= image_tag "wedding/history_3", alt: "Foto da história 3", class: "story-photo" %>
+      </div>
     </div>
-    <div class="image-placeholder">Foto do local</div>
   </div>
 </section>
 
-<section class="dresscode light">
-  <div class="container split reverse">
-    <div class="image-placeholder">Foto inspiração traje</div>
-    <div>
-      <h2>O que vestir</h2>
-      <p>Traje esporte fino. Ajuste esse texto como preferir depois.</p>
+<section class="lunch-section">
+  <div class="lunch-container">
+    <div class="lunch-content">
+      <h2 class="lunch-title">Um almoço<br>em família</h2>
+      <p class="lunch-description">Vamos celebrar nossa união em um almoço intimista e acolhedor</p>
+      <p class="lunch-details">Data: 13 de Junho de 2026<br>
+      Horário: 11:30 às 17:30<br>
+      Local: Restaurante Pellegrino,<br>
+      Rua Laranjal, 459 - Anchieta,<br>
+      Belo Horizonte</p>
+    </div>
+
+    <div class="lunch-photo-frame">
+      <%= image_tag "wedding/lunch", alt: "Local do almoço", class: "lunch-photo" %>
     </div>
   </div>
 </section>
@@ -45,6 +53,12 @@
     <h2>Presentes</h2>
     <p>Estamos montando nossa lista de presentes com muito carinho.</p>
     <%= link_to "Ver presentes", gifts_path, class: "cta" %>
+  </div>
+</section>
+
+<section class="center-cta">
+  <div class="container center">
+    <%= link_to "Próximo passo", new_rsvp_path, class: "cta-large" %>
   </div>
 </section>
 
