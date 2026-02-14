@@ -1,0 +1,79 @@
+[1mdiff --git a/Gemfile b/Gemfile[m
+[1mindex 45cb563..f52dc07 100644[m
+[1m--- a/Gemfile[m
+[1m+++ b/Gemfile[m
+[36m@@ -1,67 +1,16 @@[m
+ source "https://rubygems.org"[m
+ [m
+[31m-ruby "3.4.7"[m
+[31m-[m
+[31m-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"[m
+[31m-gem "rails", "~> 7.1.6"[m
+[31m-[m
+[31m-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails][m
+[32m+[m[32mgem "rails", "~> 7.1.5"[m
+ gem "sprockets-rails"[m
+[31m-[m
+[31m-# Use sqlite3 as the database for Active Record[m
+ gem "sqlite3", ">= 1.4"[m
+[31m-[m
+[31m-# Use the Puma web server [https://github.com/puma/puma][m
+ gem "puma", ">= 5.0"[m
+[31m-[m
+[31m-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails][m
+[31m-gem "importmap-rails"[m
+[31m-[m
+[31m-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev][m
+[31m-gem "turbo-rails"[m
+[31m-[m
+[31m-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev][m
+[31m-gem "stimulus-rails"[m
+[31m-[m
+[31m-# Build JSON APIs with ease [https://github.com/rails/jbuilder][m
+ gem "jbuilder"[m
+[31m-[m
+[31m-# Use Redis adapter to run Action Cable in production[m
+[31m-# gem "redis", ">= 4.0.1"[m
+[31m-[m
+[31m-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis][m
+[31m-# gem "kredis"[m
+[31m-[m
+[31m-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword][m
+[31m-# gem "bcrypt", "~> 3.1.7"[m
+[31m-[m
+[31m-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem[m
+[31m-gem "tzinfo-data", platforms: %i[ windows jruby ][m
+[31m-[m
+[31m-# Reduces boot times through caching; required in config/boot.rb[m
+[32m+[m[32mgem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ][m
+ gem "bootsnap", require: false[m
+[32m+[m[32mgem "bcrypt", "~> 3.1"[m
+ [m
+[31m-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images][m
+[31m-# gem "image_processing", "~> 1.2"[m
+[31m-[m
+[31m-group :development, :test do[m
+[31m-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem[m
+[31m-  gem "debug", platforms: %i[ mri windows ][m
+[31m-end[m
+[31m-[m
+[31m-group :development do[m
+[31m-  # Use console on exceptions pages [https://github.com/rails/web-console][m
+[31m-  gem "web-console"[m
+[31m-[m
+[31m-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler][m
+[31m-  # gem "rack-mini-profiler"[m
+[31m-[m
+[31m-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring][m
+[31m-  # gem "spring"[m
+[31m-end[m
+[31m-[m
+[31m-group :test do[m
+[31m-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing][m
+[31m-  gem "capybara"[m
+[31m-  gem "selenium-webdriver"[m
+[32m+[m[32munless ENV["RAILS_ENV"] == "production" || ENV["RACK_ENV"] == "production"[m
+[32m+[m[32m  group :development, :test do[m
+[32m+[m[32m    gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ][m
+[32m+[m[32m  end[m
+ end[m
