@@ -1,13 +1,13 @@
 module ApplicationHelper
   def safe_image_tag(source, fallback: nil, **options)
+    # If a fallback is provided, always use it.
+    # (image_tag does not raise when an image is missing, so rescue won't help.)
+    return image_tag(fallback, **options) if fallback.present?
+
     source = source.to_s
-    # If caller passes "wedding/history_1", serve it from public/assets/...
+    source = source.sub(/\Awedding\//, "") # avoid /wedding/wedding/...
     source = "/wedding/#{source}" unless source.start_with?("/", "http")
 
     image_tag(source, **options)
-  rescue StandardError
-    return "".html_safe if fallback.blank?
-
-    image_tag(fallback, **options)
   end
 end
