@@ -11,6 +11,7 @@ gem "bcrypt", "~> 3.1"
 
 unless ENV["RAILS_ENV"] == "production" || ENV["RACK_ENV"] == "production"
   group :development, :test do
-    gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
-  end
-end
+      gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+        end
+        end
+        
