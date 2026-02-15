@@ -167,7 +167,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .gifts-button { display: inline-block; border: 1px solid #dfe6da; color: #fff; text-decoration: none; font-family: var(--font-body); font-size: clamp(1rem, 1.2vw, 1.25rem); padding: .8rem 1.4rem; transition: .2s ease; background: transparent; }
 .gifts-button:hover { background: #dfe6da; color: #2a3225; }
 
-.footer-photo { position: relative; background: url('/end.jpg'); color:#fff; min-height: 100vh; background-size: cover; background-position: center; }
+.footer-photo { position: relative; background: url('/wedding/end.jpg'); color:#fff; min-height: 100vh; background-size: cover; background-position: center; }
 .footer-bottom-center { position: absolute; left: 0; right: 0; bottom: 2rem; text-align: center; }
 .footer-title-box { background: rgba(0, 0, 0, 0.5); padding: 1; display: inline-block; line-height: 0; }
 .footer-title-box h3 { margin: 0; color: #fff; text-align: center; line-height: 1; display: inline-block; }
@@ -445,7 +445,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .giftspage-photo--placeholder { display: grid; place-items: center; background: rgba(223, 230, 218, 0.2); color: #f4f7f2; font-size: .95rem; }
 .giftspage-card h2 { color: #fff; margin: .75rem 0 .35rem; font-family: var(--font-title); font-size: clamp(1.6rem, 2vw, 2.1rem); line-height: 1.1; }
 .giftspage-desc { margin: 0 0 .55rem; line-height: 1.45; }
-.giftspage-price { margin: 0 0 .85rem; font-weight: 700; }
+.giftspage-price { margin: 0 0 .85rem; font-weight: 1800; font-size: clamp(1.2rem, 1vw, 1rem)}
 .giftspage-buy { margin-top: .2rem; }
 .giftspage-buy:hover { opacity: .95; }
 
@@ -464,7 +464,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 
 /* RSVP public page */
 .rsvp-page {
-  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('/rsvp_2.jpg');
+  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('/wedding/rsvp_2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -571,7 +571,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
   font-size: clamp(2.3rem, 4vw, 3.3rem);
 }
 
-.payment-price { font-size: 1.4rem; font-weight: 700; color: #1f2a1a; }
+.payment-price { font-size: 2rem; font-weight: 700; color: #1f2a1a; }
 .payment-instruction { margin: 1rem 0; }
 .payment-qr-box { border: 1px dashed var(--green-2); padding: .9rem; margin: 1rem auto; max-width: 360px; }
 .payment-qr-image { width: 100%; max-width: 320px; aspect-ratio: 1/1; object-fit: cover; }
@@ -644,7 +644,14 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 
 .gift-modal-item {
   margin: .2rem 0;
-  font-weight: 700;
+  font-weight: 100;
+}
+
+.gift-modal-price {
+  margin: .2rem 0;
+  font-weight: 900;
+  line-height: 1.5;
+  font-size: clamp(2rem, 1vw, 1rem);
 }
 
 .gift-modal-qr-wrap {
