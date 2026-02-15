@@ -202,6 +202,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 
 .flash { margin: 0; padding: .8rem 1rem; }
 .notice { background: #61675f; }
+.confirmation { background: #cbd5c0; }
 .alert { background: #f47c7c; }
 
 .admin-page {

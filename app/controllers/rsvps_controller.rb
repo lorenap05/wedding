@@ -7,7 +7,7 @@ class RsvpsController < ApplicationController
     @rsvp = Rsvp.new(rsvp_params)
 
     if @rsvp.save
-      redirect_to new_rsvp_path, notice: "Confirmação enviada com sucesso!"
+      redirect_to new_rsvp_path, confirmation: "Confirmação enviada com sucesso!"
     else
       render :new, status: :unprocessable_entity
     end
