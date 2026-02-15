@@ -35,3 +35,6 @@
 /config/master.key
 !/public/assets/wedding/
 !/public/assets/wedding/**
+
+!/public/wedding/
+!/public/wedding/**
