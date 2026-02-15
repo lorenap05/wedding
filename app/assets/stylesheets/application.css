@@ -98,7 +98,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .hero {
   position: relative;
   min-height: 100vh;
-  background: url('/hero.jpg');
+  background: url('/wedding/hero.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
