@@ -201,8 +201,8 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .image-placeholder, .qr-placeholder { min-height: 280px; border: 3px solid var(--green-4); background: rgba(255,255,255,0.3); display:grid; place-items:center; padding:1rem; text-align:center; }
 
 .flash { margin: 0; padding: .8rem 1rem; }
-.notice { background: #e8f5e4; }
-.alert { background: #f9d9d9; }
+.notice { background: #61675f; }
+.alert { background: #f47c7c; }
 
 .admin-page {
   background: var(--green-1);
