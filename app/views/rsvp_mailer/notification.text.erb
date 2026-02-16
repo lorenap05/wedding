@@ -2,4 +2,4 @@ Novo RSVP recebido no site de casamento.
 
 Nome: <%= @rsvp.name %>
 Presença: <%= @rsvp.attending? ? "Sim" : "Não" %>
-Recebido em: <%= I18n.l(@rsvp.created_at, format: :long) %>
+Recebido em: <%= @rsvp.created_at&.strftime("%d/%m/%Y %H:%M") || "-" %>

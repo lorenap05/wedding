@@ -13,7 +13,12 @@ class RsvpMailerTest < ActionMailer::TestCase
 
       assert_equal ["admin@example.com"], email.to
       assert_equal "Novo RSVP recebido: Maria Silva", email.subject
-      assert_match "Presença: Sim", email.body.encoded
+
+      text_body = email.text_part&.decoded || email.body.decoded
+      html_body = email.html_part&.decoded || email.body.decoded
+
+      assert_match "Presença: Sim", text_body
+      assert_match "Presença:</strong> Sim", html_body
     end
   end
 
