@@ -33,6 +33,9 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
+# Sanity-check production environment file before Rails boots (guards against accidental patch-marker commits)
+RUN ruby -c config/environments/production.rb &&     ! grep -nE '^(diff --git|@@ |\+\+\+ b/|--- a/)' config/environments/production.rb
+
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 

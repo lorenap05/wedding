@@ -1,8 +1,4 @@
-diff --git a/app/controllers/rsvps_controller.rb b/app/controllers/rsvps_controller.rb
-index a93dc519585841a9c9047ac6d3131ecba00c6f20..810ca94f129fde70b205f5c5c5dc5b51960321da 100644
---- a/app/controllers/rsvps_controller.rb
-+++ b/app/controllers/rsvps_controller.rb
-@@ -1,21 +1,31 @@
+
  class RsvpsController < ApplicationController
    def new
      @rsvp = Rsvp.new
