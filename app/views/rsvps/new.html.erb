@@ -6,7 +6,8 @@
     </header>
 
     <%= form_with model: @rsvp, local: true, class: "rsvp-form" do |f| %>
-      <p>Ficaremos muito felizes em saber se você poderá estar conosco neste dia especial.</p> 
+      <p>Ficaremos muito felizes em saber se você poderá estar conosco neste dia especial.</p>
+      <p>Gentileza submeter um nome de convidado por vez</p>  
       <div class="rsvp-field"> 
         <%= f.label :name, "Seu nome" %>
         <%= f.text_field :name, required: true, placeholder: "Digite seu nome completo" %>
