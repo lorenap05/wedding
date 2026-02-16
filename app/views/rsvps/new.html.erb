@@ -30,4 +30,43 @@
     <% end %>
   </div>
 
+</section>
 
+<div class="gift-modal" id="rsvp-thanks-modal" aria-hidden="true" data-open-on-load="<%= params[:show_thanks] == "1" %>">
+  <div class="gift-modal-backdrop js-close-rsvp-thanks"></div>
+  <div class="gift-modal-card" role="dialog" aria-modal="true" aria-labelledby="rsvp-thanks-modal-title">
+    <button type="button" class="gift-modal-close js-close-rsvp-thanks" aria-label="Fechar">×</button>
+    <h2 id="rsvp-thanks-modal-title">Obrigado(a)!</h2>
+    <p class="gift-modal-text">Recebemos sua resposta</p>
+    <img src="/wedding/thank_you_2.jpg" alt="Obrigado" class="gift-modal-thank-image" loading="lazy" onerror="this.onerror=null;this.src='/assets/wedding/thank_you.jpg';">
+  </div>
+</div>
+
+<script>
+  (function() {
+    const thanksModal = document.getElementById('rsvp-thanks-modal');
+    if (!thanksModal) return;
+
+    const closeThanksButtons = document.querySelectorAll('.js-close-rsvp-thanks');
+
+    function openModal(modal) {
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    closeThanksButtons.forEach(function(button) {
+      button.addEventListener('click', function() { closeModal(thanksModal); });
+    });
+
+    if (thanksModal.dataset.openOnLoad === 'true') {
+      openModal(thanksModal);
+    }
+  })();
+</script>
