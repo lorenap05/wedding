@@ -96,7 +96,6 @@
     const openPaymentButtons = document.querySelectorAll('.js-open-payment');
     const closePaymentButtons = document.querySelectorAll('.js-close-payment');
     const closeThanksButtons = document.querySelectorAll('.js-close-thanks');
-    const openThanksButton = document.querySelector('.js-open-thanks');
 
     function openModal(modal) {
       modal.classList.add('active');
@@ -124,12 +123,16 @@
       button.addEventListener('click', function() { closeModal(paymentModal); });
     });
 
-    if (openThanksButton) {
-      openThanksButton.addEventListener('click', function() {
-        closeModal(paymentModal);
-        openModal(thanksModal);
-      });
-    }
+    document.addEventListener('click', function(event) {
+      const confirmButton = event.target.closest('.js-open-thanks');
+      if (!confirmButton) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      closeModal(paymentModal);
+      openModal(thanksModal);
+    });
 
     closeThanksButtons.forEach(function(button) {
       button.addEventListener('click', function() { closeModal(thanksModal); });
