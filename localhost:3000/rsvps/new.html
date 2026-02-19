@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Casamento Lukas e Lorena</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="677Xcn1_ZZBdMt5fraJnzBhwiGNLtZNaoycBX1DhKsYQj6D_FmvX3p4PvxPmY_KHcr0im3z06VX6WWq3tCqwiw" />
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:wght@400;500;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/application-91d19757d10b362c87d8d7bdc563548e3dab1fa13dee827debfbe6464a7cdbb7.css" data-turbo-track="reload" />
+  </head>
+
+  <body class="page-rsvps-new">
+    <header class="fixed-header">
+      <button class="hamburger" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <nav class="mobile-menu" id="mobile-menu">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../gifts.html">Presentes</a></li>
+        <li><a href="new.html">RSVP</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-light floating-rsvp-btn" href="new.html">RSVP</a>
+
+    
+    
+    <section class="rsvp-page">
+  <div class="rsvp-container">
+    <header class="rsvp-header">
+      <h1>Confirmar presença</h1>
+    </header>
+
+    <div class="rsvp-form">
+      <p>Ficaremos muito felizes em saber se você poderá estar conosco neste dia especial.</p>
+      <p>Gentileza submeter um nome de convidado por vez.</p>
+
+      <iframe
+        data-tally-src="https://tally.so/embed/vGA0xl?alignLeft=1&hideTitle=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="300"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Confirmar presença"
+        style="border: none; display: block;"
+      ></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}</script>
+    </div>
+  </div>
+</section>
+
+<div class="gift-modal" id="rsvp-thanks-modal" aria-hidden="true" data-open-on-load="false">
+  <div class="gift-modal-backdrop js-close-rsvp-thanks"></div>
+  <div class="gift-modal-card" role="dialog" aria-modal="true" aria-labelledby="rsvp-thanks-modal-title">
+    <button type="button" class="gift-modal-close js-close-rsvp-thanks" aria-label="Fechar">×</button>
+    <h2 id="rsvp-thanks-modal-title">Obrigado(a)!</h2>
+    <p class="gift-modal-text">Recebemos sua resposta</p>
+    <img src="../wedding/thank_you_2.jpg" alt="Obrigado" class="gift-modal-thank-image" loading="lazy" onerror="this.onerror=null;this.src='/assets/wedding/thank_you.jpg';">
+  </div>
+</div>
+
+<script>
+  (function() {
+    const thanksModal = document.getElementById('rsvp-thanks-modal');
+    if (!thanksModal) return;
+    const closeThanksButtons = document.querySelectorAll('.js-close-rsvp-thanks');
+    function openModal(modal) { modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closeModal(modal) { modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+    closeThanksButtons.forEach(function(btn){ btn.addEventListener('click', function(){ closeModal(thanksModal); }); });
+    if (thanksModal.dataset.openOnLoad === 'true') openModa
+
+    <script>
+      (function() {
+        const button = document.getElementById('hamburger-menu');
+        const menu = document.getElementById('mobile-menu');
+        if (!button || !menu) return;
+
+        button.addEventListener('click', function() {
+          const isActive = menu.classList.toggle('active');
+          button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        });
+      })();
+    </script>
+  </body>
+</html>
