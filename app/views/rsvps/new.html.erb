@@ -2,34 +2,26 @@
   <div class="rsvp-container">
     <header class="rsvp-header">
       <h1>Confirmar presença</h1>
-
     </header>
 
-    <%= form_with model: @rsvp, local: true, class: "rsvp-form" do |f| %>
+    <div class="rsvp-form">
       <p>Ficaremos muito felizes em saber se você poderá estar conosco neste dia especial.</p>
-      <p>Gentileza submeter um nome de convidado por vez.</p>  
-      <div class="rsvp-field"> 
-        <%= f.label :name, "Seu nome" %>
-        <%= f.text_field :name, required: true, placeholder: "Digite seu nome completo" %>
-      </div>
+      <p>Gentileza submeter um nome de convidado por vez.</p>
 
-      <fieldset class="rsvp-choice-group">
-        <legend>Você vai ao evento?</legend>
-        <label class="rsvp-choice">
-          <%= f.radio_button :attending, true, required: true %>
-          <span>Sim, estarei presente</span>
-        </label>
-
-        <label class="rsvp-choice">
-          <%= f.radio_button :attending, false, required: true %>
-          <span>Não conseguirei ir</span>
-        </label>
-      </fieldset>
-
-      <%= f.submit "Enviar confirmação", class: "rsvp-submit" %>
-    <% end %>
+      <iframe
+        data-tally-src="https://tally.so/embed/vGA0xl?alignLeft=1&hideTitle=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="300"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Confirmar presença"
+        style="border: none; display: block;"
+      ></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}</script>
+    </div>
   </div>
-
 </section>
 
 <div class="gift-modal" id="rsvp-thanks-modal" aria-hidden="true" data-open-on-load="<%= params[:show_thanks] == "1" %>">
@@ -46,27 +38,8 @@
   (function() {
     const thanksModal = document.getElementById('rsvp-thanks-modal');
     if (!thanksModal) return;
-
     const closeThanksButtons = document.querySelectorAll('.js-close-rsvp-thanks');
-
-    function openModal(modal) {
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(modal) {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    closeThanksButtons.forEach(function(button) {
-      button.addEventListener('click', function() { closeModal(thanksModal); });
-    });
-
-    if (thanksModal.dataset.openOnLoad === 'true') {
-      openModal(thanksModal);
-    }
-  })();
-</script>
+    function openModal(modal) { modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closeModal(modal) { modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+    closeThanksButtons.forEach(function(btn){ btn.addEventListener('click', function(){ closeModal(thanksModal); }); });
+    if (thanksModal.dataset.openOnLoad === 'true') openModa

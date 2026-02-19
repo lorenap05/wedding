@@ -546,7 +546,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .rsvp-header p { color: #fff; }
 
 .rsvp-form {
-  background: rgba(17, 24, 16, 0.72);
+  background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 14px;
   padding: 1.3rem;
@@ -591,6 +591,12 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 }
 
 .rsvp-submit:hover { background: rgba(255,255,255,.14); }
+.rsvp-form iframe {
+  background: transparent !important;
+  color-scheme: dark;
+  display: block;
+  margin: 0 -1px;
+}
 
 .rsvp-bottom-photo {
   margin-top: 2rem;
