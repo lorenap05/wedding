@@ -1,23 +1,23 @@
 <%
   official_gifts = [
-    ["Plano oficial para o Lukas não dormir no chão (porque ele já não vai dormir mesmo)", 540],
-    ["Fundo não vamos chorar no primeiro mercado", 480],
-    ["Nos ajude a pagar nossa dívida estudantil", 340],
-    ["Café suficiente para manter o Lukas consciente", 300],
-    ["Plano anti-miojo (porque Lorena realmente não sabe cozinhar)", 290],
-    ["Kit de energético para sobreviver a 4h de sono por noite", 270],
-    ["Primeira compra aleatória que esquecemos que precisávamos", 260],
-    ["Reserva para as plantas novas", 250],
-    ["Kit pintura para a Lorena ter companhia quando o Lukas estiver trabalhando no sábado", 240],
-    ["Kit organização para 40m² de caos controlado", 230],
-    ["Reserva para o delivery quando a Lorena queimar comida", 220],
-    ["Primeiro pequeno luxo para não surtar", 180],
-    ["Poupança para pegar Uber", 170],
-    ["Jogo novo de Playstation para o Lukas ter uma vida além do trabalho", 160],
-    ["Café da manhã dos campeões", 120],
-    ["Chocolate terapêutico para dias difíceis", 100],
-    ["Vai na fé que tudo vai dar certo", 70],
-    ["Ajude o Lukas a permanecer minimamente funcional", 50]
+    ["Plano oficial para o Lukas não dormir no chão (porque ele já não vai dormir mesmo)", 999],
+    ["Fundo não vamos chorar no primeiro mercado", 940],
+    ["Nos ajude a pagar nossa dívida estudantil", 850],
+    ["Café suficiente para manter o Lukas consciente", 720],
+    ["Plano anti-miojo (porque a Lorena realmente não sabe cozinhar)", 625],
+    ["Kit energético para sobreviver a 4h de sono por noite", 575],
+    ["Primeira compra aleatória que esquecemos que precisávamos", 499],
+    ["Reserva para as plantas novas", 410],
+    ["Kit pintura para a Lorena ter companhia quando o Lukas estiver trabalhando no sábado", 390],
+    ["Kit organização para 40m² de caos controlado", 330],
+    ["Reserva para o delivery quando a Lorena queimar comida", 320],
+    ["Primeiro pequeno luxo para não surtar", 280],
+    ["Poupança para pegar Uber", 240],
+    ["Jogo novo de Playstation para o Lukas ter uma vida além do trabalho", 200],
+    ["Café da manhã dos campeões", 180],
+    ["Chocolate terapêutico para dias difíceis", 175],
+    ["Vai na fé que tudo vai dar certo", 99],
+    ["Ajude o Lukas a permanecer minimamente funcional", 89]
   ]
 
   card_items = official_gifts
@@ -27,7 +27,7 @@
       {
         name: title,
         price: format("R$ %d", price),
-        image_url: "/assets/wedding/gifts/gift_#{index + 1}.png"
+        image_url: "/wedding/gifts/gift_#{index + 1}.png"
       }
     end
 
@@ -63,14 +63,12 @@
     <button type="button" class="gift-modal-close js-close-payment" aria-label="Fechar">×</button>
     <h2 id="payment-modal-title">Pagamento via Pix</h2>
     <p class="gift-modal-item" id="payment-gift-name">Item</p>
-    <p class="gift-modal-item" id="payment-gift-price">Valor</p>
-    <p class="gift-modal-text">Escaneie o QR Code abaixo ou use a chave pix 091.882.056-14 para realizar o pagamento</p>
-
-
+    <p class="gift-modal-price" id="payment-gift-price">Valor</p>
+    
     <div class="gift-modal-qr-wrap">
-      <img src="/assets/wedding/qr_code.jpg" alt="QR Code para pagamento" class="gift-modal-qr" loading="lazy">
+      <img src="/wedding/qr_code.jpg" alt="QR Code para pagamento" class="gift-modal-qr" loading="lazy">
     </div>
-
+  <p class="gift-modal-text">Na área de pix do aplicativo do seu banco, escaneie o QR Code acima ou use a chave <b>091.882.056-14</b> para realizar o pagamento</p>
     <button type="button" class="gift-modal-confirm js-open-thanks">Pagamento efetuado</button>
   </div>
 </div>
@@ -82,7 +80,7 @@
     <h2 id="thanks-modal-title">Obrigado(a)!</h2>
     <p class="gift-modal-text">Recebemos sua confirmação de pagamento.</p> 
     <p class="gift-modal-text">Te esperamos no dia 13/06!</p>
-    <img src="/assets/wedding/thank_you.jpg" alt="Obrigado" class="gift-modal-thank-image" loading="lazy">
+    <img src="/wedding/thank_you.jpg" alt="Obrigado" class="gift-modal-thank-image" loading="lazy">
   </div>
 </div>
 
@@ -98,7 +96,6 @@
     const openPaymentButtons = document.querySelectorAll('.js-open-payment');
     const closePaymentButtons = document.querySelectorAll('.js-close-payment');
     const closeThanksButtons = document.querySelectorAll('.js-close-thanks');
-    const openThanksButton = document.querySelector('.js-open-thanks');
 
     function openModal(modal) {
       modal.classList.add('active');
@@ -126,12 +123,16 @@
       button.addEventListener('click', function() { closeModal(paymentModal); });
     });
 
-    if (openThanksButton) {
-      openThanksButton.addEventListener('click', function() {
-        closeModal(paymentModal);
-        openModal(thanksModal);
-      });
-    }
+    document.addEventListener('click', function(event) {
+      const confirmButton = event.target.closest('.js-open-thanks');
+      if (!confirmButton) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      closeModal(paymentModal);
+      openModal(thanksModal);
+    });
 
     closeThanksButtons.forEach(function(button) {
       button.addEventListener('click', function() { closeModal(thanksModal); });

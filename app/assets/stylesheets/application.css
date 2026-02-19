@@ -90,7 +90,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 }
 
 .mobile-menu.active { display: block; }
-.mobile-menu ul { list-style: none; margin: 0; padding: 1rem 2rem; background: rgba(255, 255, 255, 0.15); }
+.mobile-menu ul { list-style: none; margin: 0; padding: 1rem 2rem; background: #000; }
 .mobile-menu li { margin: 1rem 0; }
 .mobile-menu a { color: #fff; text-decoration: none; font-size: 1.1rem; font-family: var(--font-body); }
 .mobile-menu a:hover { color: #ddd; }
@@ -98,12 +98,13 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .hero {
   position: relative;
   min-height: 100vh;
-  background: url('/assets/wedding/hero.jpg');
+  background: url('/wedding/hero.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: flex-end;
 }
+
 
 .overlay { color: #fff; padding: 4rem; }
 
@@ -129,9 +130,9 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 
 .story-section { background: var(--green-5); color: #121212; padding: 5.5rem 0 5.25rem; }
 .story-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-.story-title { font-family: var(--font-title); font-size: clamp(3rem, 5vw, 4.2rem); font-weight: 500; line-height: 1; margin: 0 0 2rem; }
+.story-title { font-family: var(--font-title); font-size: clamp(2.4rem, 3.8vw, 3.3rem); font-weight: 500; line-height: 1; margin: 0 0 1.6rem; }
 .story-text { max-width: 1080px; }
-.story-text p { font-family: var(--font-body); font-size: clamp(1.3rem, 1.5vw, 2rem); line-height: 1.75; letter-spacing: .01em; margin: 0 0 1.8rem; }
+.story-text p { font-family: var(--font-body); font-size: clamp(1.05rem, 1.2vw, 1.5rem); line-height: 1.7; letter-spacing: .01em; margin: 0 0 1.5rem; }
 .story-gallery { margin-top: 2.1rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem; }
 .story-photo-frame { border: 2px solid #8f9a86; padding: .35rem; background: #d8dfd4; }
 .story-photo { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: grayscale(100%); }
@@ -140,8 +141,8 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 
 .lunch-section { background: var(--green-2); color: #fff; padding: 5.5rem 0; }
 .lunch-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 3.2rem; align-items: center; }
-.lunch-title { font-family: var(--font-title); color: #fff; font-size: clamp(3rem, 5vw, 4.9rem); line-height: 1.03; font-weight: 500; margin: 0 0 2rem; }
-.lunch-description, .lunch-details { font-family: var(--font-body); color: #fff; font-size: clamp(1.3rem, 1.5vw, 2.05rem); line-height: 1.6; margin: 0; }
+.lunch-title { font-family: var(--font-title); color: #fff; font-size: clamp(2.6rem, 4.3vw, 4.1rem); line-height: 1.03; font-weight: 500; margin: 0 0 1.6rem; }
+.lunch-description, .lunch-details { font-family: var(--font-body); color: #fff; font-size: clamp(1.05rem, 1.2vw, 1.45rem); line-height: 1.55; margin: 0; }
 .lunch-description { margin-bottom: 1.8rem; }
 .lunch-photo-frame { border: 2px solid #d6ded0; padding: .45rem; background: #8a9880; }
 .lunch-photo { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
@@ -153,24 +154,42 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .dresscode-container { max-width: 1260px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1.2fr .8fr; gap: 4rem; align-items: center; }
 .dresscode-photo-frame { border: 2px solid #d6ded0; padding: .45rem; background: #d4dbcf; }
 .dresscode-photo { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-.dresscode-title { font-family: var(--font-title); font-size: clamp(3rem, 4.4vw, 4.6rem); line-height: 1.04; margin: 0 0 1.8rem; color: #141414; font-weight: 500; }
-.dresscode-text { font-family: var(--font-body); font-size: clamp(1.25rem, 1.45vw, 2rem); line-height: 1.55; margin: 0 0 1.7rem; color: #171717; }
+.dresscode-title { font-family: var(--font-title); font-size: clamp(2.6rem, 4vw, 3.9rem); line-height: 1.04; margin: 0 0 1.4rem; color: #141414; font-weight: 500; }
+.dresscode-text { font-family: var(--font-body); font-size: clamp(1rem, 1.1vw, 1.4rem); line-height: 1.5; margin: 0 0 1.2rem; color: #171717; }
 
 .gifts-section { background: var(--green-2); color: #fff; padding: 5.5rem 0; }
 .gifts-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem; align-items: center; }
 .gifts-content { max-width: 470px; }
 .gifts-photo-frame { border: 2px solid #d6ded0; padding: .45rem; background: #8a9880; }
 .gifts-photo { display: block; width: 100%; aspect-ratio: 1/1; object-fit: cover; }
-.gifts-title { font-family: var(--font-title); color: #fff; font-size: clamp(3rem, 4.8vw, 4.7rem); line-height: 1; margin: 0 0 1.5rem; font-weight: 500; }
-.gifts-text { font-family: var(--font-body); color: #fff; font-size: clamp(1.2rem, 1.35vw, 1.8rem); line-height: 1.7; margin: 0 0 2rem; }
+.gifts-title { font-family: var(--font-title); color: #fff; font-size: clamp(2.5rem, 4vw, 3.8rem); line-height: 1; margin: 0 0 1.2rem; font-weight: 500; }
+.gifts-text { font-family: var(--font-body); color: #fff; font-size: clamp(1rem, 1.1vw, 1.35rem); line-height: 1.6; margin: 0 0 1.5rem; }
 .gifts-button { display: inline-block; border: 1px solid #dfe6da; color: #fff; text-decoration: none; font-family: var(--font-body); font-size: clamp(1rem, 1.2vw, 1.25rem); padding: .8rem 1.4rem; transition: .2s ease; background: transparent; }
 .gifts-button:hover { background: #dfe6da; color: #2a3225; }
 
-.footer-photo { position: relative; background: url('/assets/wedding/end.jpg'); color:#fff; min-height: 100vh; background-size: cover; background-position: center; }
-.footer-bottom-center { position: absolute; left: 0; right: 0; bottom: 2rem; text-align: center; }
+.footer-photo { position: relative; background: url('/wedding/end.jpg'); color:#fff; min-height: 100vh; background-size: cover; background-position: center; }
+.footer-bottom-center { position: absolute; left: 0; right: 0; bottom: 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: .8rem; }
 .footer-title-box { background: rgba(0, 0, 0, 0.5); padding: 1; display: inline-block; line-height: 0; }
 .footer-title-box h3 { margin: 0; color: #fff; text-align: center; line-height: 1; display: inline-block; }
+.footer-title-box h2 { margin: 0; color: #fff; text-align: center; line-height: 1; display: inline-block; font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
 .footer-button-container { display: flex; justify-content: center; width: 100%; }
+.footer-rsvp-button {
+  display: inline-block;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-title);
+  font-size: clamp(1.05rem, 1vw, 1.2rem);
+  font-weight: 700;
+  padding: .9rem 1.4rem;
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+
+.footer-rsvp-button:hover {
+  background: rgba(255,255,255,.14);
+}
 
 .hidden-admin-login {
   position: absolute;
@@ -200,8 +219,9 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .image-placeholder, .qr-placeholder { min-height: 280px; border: 3px solid var(--green-4); background: rgba(255,255,255,0.3); display:grid; place-items:center; padding:1rem; text-align:center; }
 
 .flash { margin: 0; padding: .8rem 1rem; }
-.notice { background: #e8f5e4; }
-.alert { background: #f9d9d9; }
+.notice { background: #61675f; }
+.confirmation { background: #cbd5c0; }
+.alert { background: #f47c7c; }
 
 .admin-page {
   background: var(--green-1);
@@ -440,22 +460,56 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .giftspage-header p { margin: 0 auto; max-width: 760px; font-size: clamp(1rem, 1.2vw, 1.3rem); line-height: 1.6; }
 .giftspage-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
 .giftspage-card { background: rgba(223, 230, 218, 0.12); border: 1px solid rgba(223, 230, 218, 0.5); padding: .95rem; }
-.giftspage-photo { width: 5.5in; height: 5.5in; max-width: 100%; object-fit: cover; border: 1px solid #dfe6da; display: block; margin: 0 auto; }
+.giftspage-photo { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid #dfe6da; display: block; margin: 0 auto; }
 .giftspage-photo--placeholder { display: grid; place-items: center; background: rgba(223, 230, 218, 0.2); color: #f4f7f2; font-size: .95rem; }
 .giftspage-card h2 { color: #fff; margin: .75rem 0 .35rem; font-family: var(--font-title); font-size: clamp(1.6rem, 2vw, 2.1rem); line-height: 1.1; }
 .giftspage-desc { margin: 0 0 .55rem; line-height: 1.45; }
-.giftspage-price { margin: 0 0 .85rem; font-weight: 700; }
+.giftspage-price { margin: 0 0 .85rem; font-weight: 1800; font-size: clamp(1.2rem, 1vw, 1rem)}
 .giftspage-buy { margin-top: .2rem; }
 .giftspage-buy:hover { opacity: .95; }
 
 @media (max-width: 800px) {
-  .split, .reverse,
+  .hero {
+    min-height: 84vh;
+    background-image: url('/wedding/hero_2.png'), url('/assets/wedding/hero_2.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .footer-photo {
+    min-height: 84vh;
+    background-image: url('/wedding/end_2.png'), url('/assets/wedding/hero_2.png');
+    background-size: cover;
+    background-position: center;
+  }
   .lunch-container,
   .dresscode-container,
   .gifts-container,
-  .giftspage-columns,
-  .story-gallery {
+  .giftspage-columns {
     grid-template-columns: 1fr;
+  }
+
+  .story-gallery {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: .4rem;
+  }
+
+  .story-photo-frame {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
+  }
+
+  .giftspage-container {
+    padding: 0 .9rem;
+  }
+
+  .giftspage-photo {
+    width: 100%;
+    max-width: none;
   }
 
   .overlay { padding: 2rem; }
@@ -463,7 +517,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 
 /* RSVP public page */
 .rsvp-page {
-  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('/assets/wedding/rsvp_2.png');
+  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('/wedding/rsvp_2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -510,6 +564,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
   border-radius: 8px;
   background: rgba(255,255,255,.12);
   color: #fff;
+  font-size: 16px;
 }
 .rsvp-field input[type="text"]::placeholder { color: rgba(255,255,255,.75); }
 
@@ -570,7 +625,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
   font-size: clamp(2.3rem, 4vw, 3.3rem);
 }
 
-.payment-price { font-size: 1.4rem; font-weight: 700; color: #1f2a1a; }
+.payment-price { font-size: 2rem; font-weight: 700; color: #1f2a1a; }
 .payment-instruction { margin: 1rem 0; }
 .payment-qr-box { border: 1px dashed var(--green-2); padding: .9rem; margin: 1rem auto; max-width: 360px; }
 .payment-qr-image { width: 100%; max-width: 320px; aspect-ratio: 1/1; object-fit: cover; }
@@ -599,6 +654,7 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 .btn { display:inline-block; padding:.7rem 1.2rem; border-radius:8px; text-decoration:none; font-family: var(--font-title); font-weight:700; border:1px solid transparent; cursor:pointer; }
 .btn-light { background:#f8f9fa; color:#212529; border-color:#f8f9fa; }
 .btn-light:hover { background:#e2e6ea; border-color:#dae0e5; color:#212529; }
+.btn-dark { background:#212529; color:#f8f9fa; }
 
 /* Gift payment popups */
 .gift-modal {
@@ -643,7 +699,14 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
 
 .gift-modal-item {
   margin: .2rem 0;
-  font-weight: 700;
+  font-weight: 100;
+}
+
+.gift-modal-price {
+  margin: .2rem 0;
+  font-weight: 900;
+  line-height: 1.5;
+  font-size: clamp(2rem, 1vw, 1rem);
 }
 
 .gift-modal-qr-wrap {
@@ -689,4 +752,32 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
   .admin-rsvp-table {
     min-width: 560px;
   }
+
+  .floating-rsvp-btn {
+    right: 1rem;
+    top: 1rem;
+    padding: .8rem 1rem !important;
+  }
+
+  .gift-modal-card {
+    width: calc(100% - 1rem);
+    margin-top: 4vh;
+    padding: 1rem;
+  }
+
+  .gift-modal-qr {
+    max-width: 220px;
+  }
+
+  .gift-modal-qr-wrap {
+    padding: .6rem;
+    margin: .8rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-photo-frame {
+    flex-basis: 88%;
+  }
+
 }

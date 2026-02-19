@@ -5,22 +5,22 @@
     <h2 class="story-title">A nossa história</h2>
 
     <div class="story-text">
-      <p>Nós nos conhecemos há quatorze anos, no Ensino Médio, quando fazíamos simulações de conferências da ONU.</p>
+      <p>Nos conhecemos no Ensino Médio, quando fazíamos simulações de conferências da ONU, e a nossa amizade cresceu durante a faculdade de Direito.</p>
 
       <p>Em 2017, depois de uma dose líquida de coragem, demos o salto que transformou nossa relação. O que era uma amizade de muita cumplicidade nutriu um amor para toda a vida.</p>
 
-      <p>Desde então, dividimos a vida a dois, construindo nossos sonhos em conjunto. Hoje, celebramos nove anos de Lukas e Lorena na presença daqueles que mais amamos e iniciamos um novo capítulo desta jornada.</p>
+      <p>Desde então, dividimos a vida a dois, construindo nossos sonhos em conjunto. Hoje, celebramos nove anos de Lukas e Lorena na presença daqueles que mais amamos, e iniciamos um novo capítulo desta jornada.</p>
     </div>
 
     <div class="story-gallery">
       <div class="story-photo-frame">
-        <%= safe_image_tag "wedding/history_1", fallback: "/assets/wedding/history_1.jpg", alt: "Foto da história 1", class: "story-photo" %>
+        <%= safe_image_tag "wedding/history_1", fallback: "/wedding/history_1.jpg", alt: "Foto da história 1", class: "story-photo" %>
       </div>
       <div class="story-photo-frame">
-        <%= safe_image_tag "wedding/history_2", fallback: "/assets/wedding/history_2.jpg", alt: "Foto da história 2", class: "story-photo" %>
+        <%= safe_image_tag "wedding/history_2", fallback: "/wedding/history_2.jpg", alt: "Foto da história 2", class: "story-photo" %>
       </div>
       <div class="story-photo-frame">
-        <%= safe_image_tag "wedding/history_3", fallback: "/assets/wedding/history_3.jpg", alt: "Foto da história 3", class: "story-photo" %>
+        <%= safe_image_tag "wedding/history_3", fallback: "/wedding/history_3.jpg", alt: "Foto da história 3", class: "story-photo" %>
       </div>
     </div>
   </div>
@@ -32,14 +32,14 @@
       <h2 class="lunch-title">Um almoço<br>em família</h2>
       <p class="lunch-description">Vamos celebrar nossa união em um almoço intimista e acolhedor</p>
       <p class="lunch-details">Data: 13 de Junho de 2026<br>
-      Horário: 11:30 às 17:30<br>
+      Horário: 11:30h às 17:30h<br>
       Local: Restaurante Pellegrino,<br>
       Rua Laranjal, 459 - Anchieta,<br>
       Belo Horizonte</p>
     </div>
 
     <div class="lunch-photo-frame">
-      <%= safe_image_tag "wedding/lunch", fallback: "/assets/wedding/lunch.jpg", alt: "Local do almoço", class: "lunch-photo" %>
+      <%= safe_image_tag "wedding/lunch", fallback: "/wedding/lunch.jpeg", alt: "Local do almoço", class: "lunch-photo" %>
     </div>
   </div>
 </section>
@@ -47,14 +47,14 @@
 <section class="dresscode-section">
   <div class="dresscode-container">
     <div class="dresscode-photo-frame">
-      <%= safe_image_tag "wedding/dresscode", fallback: "/assets/wedding/dresscode.jpg", alt: "Inspiração de vestimenta", class: "dresscode-photo" %>
+      <%= safe_image_tag "wedding/dresscode", fallback: "/wedding/dresscode.png", alt: "Inspiração de vestimenta", class: "dresscode-photo" %>
     </div>
 
     <div class="dresscode-content">
       <h2 class="dresscode-title">O que vestir</h2>
       <p class="dresscode-text">Traje esporte fino. Queremos que se sintam confortáveis no que escolherem vestir</p>
 
-      <p class="dresscode-text">Aos homens: gravatas são opcionais</p>
+      <p class="dresscode-text">Aos homens: gravatas são opcionais porque nem o noivo vai usar uma!</p>
 
       <p class="dresscode-text">Às mulheres: gentileza evitar trajes brancos ou de tons muito claros</p>
     </div>
@@ -65,20 +65,20 @@
   <div class="gifts-container">
     <div class="gifts-content">
       <h2 class="gifts-title">Presentes</h2>
-      <p class="gifts-text">Estamos nos mudando para São Francisco e não conseguiremos levar nada de Belo Horizonte para lá.<br>
-      Se desejar nos presentear, veja nossa lista.</p>
+      <p class="gifts-text">Sua presença é o que mais desejamos neste dia! Caso ainda assim queira nos presentar, clique no link abaixo</p>
 
       <%= link_to "Ver lista de presentes", gifts_path, class: "gifts-button" %>
     </div>
 
     <div class="gifts-photo-frame">
-      <%= safe_image_tag "wedding/gift.jpg", fallback: "/assets/wedding/gift.jpg", alt: "Presente embrulhado", class: "gifts-photo" %>
+      <%= safe_image_tag "wedding/gift.jpg", fallback: "/wedding/gift.jpg", alt: "Presente embrulhado", class: "gifts-photo" %>
     </div>
   </div>
 </section>
 
 <section class="footer-photo">
   <div class="footer-bottom-center">
+  <%= link_to "Confirmar presença", new_rsvp_path, class: "footer-rsvp-button" %>
     <div class="footer-title-box">
       <h2>Te esperamos lá</h2>
     </div>
