@@ -67,7 +67,7 @@
     <button type="button" class="gift-modal-close js-close-rsvp-thanks" aria-label="Fechar">×</button>
     <h2 id="rsvp-thanks-modal-title">Obrigado(a)!</h2>
     <p class="gift-modal-text">Recebemos sua resposta</p>
-    <img src="../wedding/thank_you_2.jpg" alt="Obrigado" class="gift-modal-thank-image" loading="lazy" onerror="this.onerror=null;this.src='/assets/wedding/thank_you.jpg';">
+    <img src="../wedding/thank_you_2.jpg" alt="Obrigado" class="gift-modal-thank-image" loading="lazy" onerror="this.onerror=null;this.src='../wedding/thank_you.jpg';">
   </div>
 </div>
 
@@ -79,19 +79,25 @@
     function openModal(modal) { modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
     function closeModal(modal) { modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
     closeThanksButtons.forEach(function(btn){ btn.addEventListener('click', function(){ closeModal(thanksModal); }); });
-    if (thanksModal.dataset.openOnLoad === 'true') openModa
+    if (thanksModal.dataset.openOnLoad === 'true') openModal(thanksModal);
 
-    <script>
-      (function() {
-        const button = document.getElementById('hamburger-menu');
-        const menu = document.getElementById('mobile-menu');
-        if (!button || !menu) return;
+    window.addEventListener('message', function(e) {
+      if (e.data && e.data.event === 'Tally.FormSubmitted') {
+        openModal(thanksModal);
+      }
+    });
+  })();
 
-        button.addEventListener('click', function() {
-          const isActive = menu.classList.toggle('active');
-          button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-        });
-      })();
-    </script>
+  (function() {
+    const button = document.getElementById('hamburger-menu');
+    const menu = document.getElementById('mobile-menu');
+    if (!button || !menu) return;
+    button.addEventListener('click', function() {
+      const isActive = menu.classList.toggle('active');
+      button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    });
+  })();
+</script>
+
   </body>
 </html>
