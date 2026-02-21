@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Painel Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="TUCwAc3VPzWXTYlGCxHQ4X6bPYpQZk6hqg8kqR1sSIxrocyX5C5gDrzQcSMRFcdbEjFww2JVjHntwyXrzdkOKA" />
+    
+    <link rel="stylesheet" href="../assets/application-91d19757d10b362c87d8d7bdc563548e3dab1fa13dee827debfbe6464a7cdbb7.css" data-turbo-track="reload" />
+  </head>
+  <body class="admin-page page-admin-sessions-new">
+    <header class="fixed-header admin-fixed-header">
+      <div class="admin-shell admin-header-inner">
+        <button class="hamburger" id="admin-hamburger-menu" aria-label="Abrir menu" aria-expanded="false" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <span class="admin-fixed-title">Painel administrativo</span>
+      </div>
+    </header>
+
+    <nav class="mobile-menu admin-mobile-menu" id="admin-mobile-menu">
+      <div class="admin-shell">
+        <ul>
+            <li><a href="login.html">Entrar</a></li>
+            <li><a href="../index.html">Voltar ao site</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="admin-shell admin-main admin-main--spaced">
+      <section class="admin-auth-page">
+  <div class="admin-auth-card">
+    <h2>Entrar no painel</h2>
+    <p>Use seu e-mail e senha para acessar as configurações do casamento.</p>
+
+    <form class="admin-form" action="login.html" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="rZaOnZ6mEVeXW5FFsw3UVQ-vANbnKAoUbmYdI0Owt_c1zof4xDE14qJUst_tHtKoqobAqXvujCO7qu_le1UAtg" autocomplete="off" />
+      <div class="admin-form-field">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" required="required" />
+      </div>
+      <div class="admin-form-field">
+        <label for="password">Senha</label>
+        <input type="password" name="password" id="password" required="required" />
+      </div>
+      <input type="submit" name="commit" value="Entrar" class="btn btn-light" data-disable-with="Entrar" />
+</form>  </div>
+</section>
+
+    </main>
+
+    <script>
+      (function() {
+        const button = document.getElementById('admin-hamburger-menu');
+        const menu = document.getElementById('admin-mobile-menu');
+        if (!button || !menu) return;
+
+        button.addEventListener('click', function() {
+          const isActive = menu.classList.toggle('active');
+          button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        });
+      })();
+    </script>
+  </body>
+</html>
