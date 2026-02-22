@@ -99,7 +99,7 @@
       btn.addEventListener('click', function() { closeModal(thanksModal); });
     });
 
-    if (thanksModal.dataset.openOnLoad === 'true') {
+    if (thanksModal.dataset.openOnLoad === 'true' || window.location.search.includes('show_thanks=1')) {
       openModal(thanksModal);
     }
 
