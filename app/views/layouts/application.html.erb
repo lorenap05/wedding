@@ -37,16 +37,19 @@
     <%= yield %>
 
     <script>
-      (function() {
+      document.addEventListener('turbo:load', function() {
         const button = document.getElementById('hamburger-menu');
         const menu = document.getElementById('mobile-menu');
         if (!button || !menu) return;
 
-        button.addEventListener('click', function() {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+
+        newButton.addEventListener('click', function() {
           const isActive = menu.classList.toggle('active');
-          button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+          newButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
-      })();
+      });
     </script>
   </body>
 </html>
