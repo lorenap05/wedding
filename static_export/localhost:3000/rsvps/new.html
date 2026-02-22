@@ -4,7 +4,7 @@
     <title>Casamento Lukas e Lorena</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="3KqnDi_Stfhip1MkiBr62RXg3OQOVvkRmyt8sbHW4yr6S9uYBinqw0k6q0GSHu1jeUqRrTxlO8nc533zYWOljg" />
+<meta name="csrf-token" content="WmuJ6Kc6ZsoUNbxc5ZR2vZV5t9HPM9kxk_fdKyJqtStAmFyAJql3i5QsAgED_VpwJ2E2287GRZgZ65LJj4VUuA" />
     
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,34 +64,75 @@
 <div class="gift-modal" id="rsvp-thanks-modal" aria-hidden="true" data-open-on-load="false">
   <div class="gift-modal-backdrop js-close-rsvp-thanks"></div>
   <div class="gift-modal-card" role="dialog" aria-modal="true" aria-labelledby="rsvp-thanks-modal-title">
-    <button type="button" class="gift-modal-close js-close-rsvp-thanks" aria-label="Fechar">×</button>
+    <button type="button" class="gift-modal-close js-close-rsvp-thanks" aria-label="Fechar">&times;</button>
     <h2 id="rsvp-thanks-modal-title">Obrigado(a)!</h2>
     <p class="gift-modal-text">Recebemos sua resposta</p>
-    <img src="../wedding/thank_you_2.jpg" alt="Obrigado" class="gift-modal-thank-image" loading="lazy" onerror="this.onerror=null;this.src='/assets/wedding/thank_you.jpg';">
+    <img src="../wedding/thank_you_2.jpg" alt="Obrigado" class="gift-modal-thank-image" loading="lazy" onerror="this.onerror=null;this.src='/wedding/thank_you.jpg';">
   </div>
 </div>
 
 <script>
   (function() {
+    // Hamburger menu
+    const button = document.getElementById('hamburger-menu');
+    const menu = document.getElementById('mobile-menu');
+    if (button && menu) {
+      button.addEventListener('click', function() {
+        const isActive = menu.classList.toggle('active');
+        button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      });
+    }
+
+    // Thank you modal
     const thanksModal = document.getElementById('rsvp-thanks-modal');
     if (!thanksModal) return;
+
     const closeThanksButtons = document.querySelectorAll('.js-close-rsvp-thanks');
-    function openModal(modal) { modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
-    function closeModal(modal) { modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
-    closeThanksButtons.forEach(function(btn){ btn.addEventListener('click', function(){ closeModal(thanksModal); }); });
-    if (thanksModal.dataset.openOnLoad === 'true') openModa
+
+    function openModal(modal) {
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    closeThanksButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() { closeModal(thanksModal); });
+    });
+
+    if (thanksModal.dataset.openOnLoad === 'true') {
+      openModal(thanksModal);
+    }
+
+    // Listen for Tally form submission
+    window.addEventListener('message', function(e) {
+      if (e.data && e.data.event === 'Tally.FormSubmitted') {
+        openModal(thanksModal);
+      }
+    });
+  })();
+</script>
+
 
     <script>
-      (function() {
+      document.addEventListener('turbo:load', function() {
         const button = document.getElementById('hamburger-menu');
         const menu = document.getElementById('mobile-menu');
         if (!button || !menu) return;
 
-        button.addEventListener('click', function() {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+
+        newButton.addEventListener('click', function() {
           const isActive = menu.classList.toggle('active');
-          button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+          newButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
-      })();
+      });
     </script>
   </body>
 </html>

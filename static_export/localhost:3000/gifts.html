@@ -4,7 +4,7 @@
     <title>Casamento Lukas e Lorena</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="qK6kMq2GAUB33Tdfeo_7DOZPvrbz6jes-60UudHDk1iOT9ikhH1ee1xAzzpgi-y2iuXz_8HZ9XS8YRX7AXbV_A" />
+<meta name="csrf-token" content="Gh5QXd_E-LIdsWEFH0d7U94Q4vpaMgNjeETixOS-YIUA7YU1Xlfp852o31j5LleebAhj8FvHn8ryWK0mSVGBFg" />
     
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -259,16 +259,19 @@
 
 
     <script>
-      (function() {
+      document.addEventListener('turbo:load', function() {
         const button = document.getElementById('hamburger-menu');
         const menu = document.getElementById('mobile-menu');
         if (!button || !menu) return;
 
-        button.addEventListener('click', function() {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+
+        newButton.addEventListener('click', function() {
           const isActive = menu.classList.toggle('active');
-          button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+          newButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
-      })();
+      });
     </script>
   </body>
 </html>
