@@ -4,16 +4,13 @@
     <title>Casamento Lukas e Lorena</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="ToDZLNSLSH22k8HAqeAU4Eh1w9XwtpMm3QPCxqNyeJRUcwxEVRhZPDaKf51PiTgt-m1C3_FDD49XH40kDp2ZBw" />
+<meta name="csrf-token" content="vDwy14yoHbjN09EdIj6UT3S71rfM6AIM70KOId_v-a6tGfLpl78GqB8wzvSUlyAYwimoS7MozqQ5KkPMpKtIWw" />
     
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:wght@400;500;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="assets/application-91d19757d10b362c87d8d7bdc563548e3dab1fa13dee827debfbe6464a7cdbb7.css" data-turbo-track="reload" />
   </head>
-
   <body class="page-pages-home">
     <header class="fixed-header">
       <button class="hamburger" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" type="button">
@@ -22,7 +19,6 @@
         <span></span>
       </button>
     </header>
-
     <nav class="mobile-menu" id="mobile-menu">
       <ul>
         <li><a href="index.html">Início</a></li>
@@ -30,9 +26,7 @@
         <li><a href="rsvps/new.html">RSVP</a></li>
       </ul>
     </nav>
-
     <a class="btn btn-light floating-rsvp-btn" href="rsvps/new.html">RSVP</a>
-
     
     
     <section class="hero"></section>
@@ -124,9 +118,8 @@
   <a class="hidden-admin-login" aria-label="Acesso administrativo" href="admin/login.html">admin</a>
 </section>
 
-
     <script>
-      document.addEventListener('turbo:load', function() {
+      (function() {
         const button = document.getElementById('hamburger-menu');
         const menu = document.getElementById('mobile-menu');
         if (!button || !menu) return;
@@ -138,7 +131,7 @@
           const isActive = menu.classList.toggle('active');
           newButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
-      });
+      })();
     </script>
   </body>
 </html>

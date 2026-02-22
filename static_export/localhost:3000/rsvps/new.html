@@ -4,16 +4,13 @@
     <title>Casamento Lukas e Lorena</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="WmuJ6Kc6ZsoUNbxc5ZR2vZV5t9HPM9kxk_fdKyJqtStAmFyAJql3i5QsAgED_VpwJ2E2287GRZgZ65LJj4VUuA" />
+<meta name="csrf-token" content="1bQv7e5nJyy0BusmmmDFXhbos00bzexyHB4JAuqiBhrEke_T9XA8PGbl9M8syXEJoHrNsWQNINrKdsTvkea37w" />
     
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:wght@400;500;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="../assets/application-91d19757d10b362c87d8d7bdc563548e3dab1fa13dee827debfbe6464a7cdbb7.css" data-turbo-track="reload" />
   </head>
-
   <body class="page-rsvps-new">
     <header class="fixed-header">
       <button class="hamburger" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" type="button">
@@ -22,7 +19,6 @@
         <span></span>
       </button>
     </header>
-
     <nav class="mobile-menu" id="mobile-menu">
       <ul>
         <li><a href="../index.html">Início</a></li>
@@ -30,9 +26,7 @@
         <li><a href="new.html">RSVP</a></li>
       </ul>
     </nav>
-
     <a class="btn btn-light floating-rsvp-btn" href="new.html">RSVP</a>
-
     
     
     <section class="rsvp-page">
@@ -105,8 +99,8 @@
       btn.addEventListener('click', function() { closeModal(thanksModal); });
     });
 
-    if (thanksModal.dataset.openOnLoad === 'true' || window.location.search.includes('show_thanks=1')) {
-    openModal(thanksModal);
+    if (thanksModal.dataset.openOnLoad === 'true') {
+      openModal(thanksModal);
     }
 
     // Listen for Tally form submission
@@ -118,9 +112,8 @@
   })();
 </script>
 
-
     <script>
-      document.addEventListener('turbo:load', function() {
+      (function() {
         const button = document.getElementById('hamburger-menu');
         const menu = document.getElementById('mobile-menu');
         if (!button || !menu) return;
@@ -132,7 +125,7 @@
           const isActive = menu.classList.toggle('active');
           newButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
-      });
+      })();
     </script>
   </body>
 </html>
