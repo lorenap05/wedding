@@ -4,16 +4,13 @@
     <title>Casamento Lukas e Lorena</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="0mdYN13VF5ShP4P6RLxbsFk3YcAvjqZ9-vGzQxxMC9UpVi-6NsGl2mIC4rYPfc77M_rLOBjP3HKjj9ir-IeRmA" />
+<meta name="csrf-token" content="XceJ34IGeBr3CkqlSIpgdnifE3sQgnValSUHx05VwtRBjYvTHdsRCdbiLjlOUYbEGSbUVF0b8-VWD4j_x7eWtA" />
     
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:wght@400;500;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/application-91d19757d10b362c87d8d7bdc563548e3dab1fa13dee827debfbe6464a7cdbb7.css" data-turbo-track="reload" />
+    <link rel="stylesheet" href="assets/application-5993c9ce62c1df9a8de429e7cce0dcf63464e5013f86e9be16a83bd35e877a4b.css" data-turbo-track="reload" />
   </head>
-
   <body class="page-gifts-index">
     <header class="fixed-header">
       <button class="hamburger" id="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" type="button">
@@ -22,7 +19,6 @@
         <span></span>
       </button>
     </header>
-
     <nav class="mobile-menu" id="mobile-menu">
       <ul>
         <li><a href="index.html">Início</a></li>
@@ -30,9 +26,7 @@
         <li><a href="rsvps/new.html">RSVP</a></li>
       </ul>
     </nav>
-
     <a class="btn btn-light floating-rsvp-btn" href="rsvps/new.html">RSVP</a>
-
     
     
     
@@ -257,16 +251,18 @@
   })();
 </script>
 
-
     <script>
       (function() {
         const button = document.getElementById('hamburger-menu');
         const menu = document.getElementById('mobile-menu');
         if (!button || !menu) return;
 
-        button.addEventListener('click', function() {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+
+        newButton.addEventListener('click', function() {
           const isActive = menu.classList.toggle('active');
-          button.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+          newButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
       })();
     </script>
