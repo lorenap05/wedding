@@ -1,0 +1,5 @@
+Novo RSVP recebido no site de casamento.
+
+Nome: <%= @rsvp.name %>
+Presença: <%= @rsvp.attending? ? "Sim" : "Não" %>
+Recebido em: <%= @rsvp.created_at&.strftime("%d/%m/%Y %H:%M") || "-" %>

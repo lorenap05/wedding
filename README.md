@@ -30,11 +30,3 @@ Exemplo:
 ADMIN_EMAIL=admin@seudominio.com ADMIN_PASSWORD='uma-senha-forte' bin/rails db:seed
 ```
 
-Também é possível trocar a senha depois pelo painel em **/admin/settings**.
-
-## Acesso admin (seed)
-
-- E-mail: `admin@casamento.com`
-- Senha: `trocar-essa-senha`
-
-Altere imediatamente após o primeiro login.

@@ -689,4 +689,14 @@ h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-b
   .admin-rsvp-table {
     min-width: 560px;
   }
+@media (max-width: 768px) {
+  .hero {
+    background-image: url('/assets/wedding/hero_2.png');
+  }
+
+  .footer-photo {
+    background-image: url('/assets/wedding/end_2.png');
+  }
+}
+
 }

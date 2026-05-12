@@ -1,0 +1,789 @@
+:root {
+  --green-1: #758467;
+  --green-2: #819171;
+  --green-3: #9caf88;
+  --green-4: #cbd5c0;
+  --green-5: #dfe6da;
+  --font-main: "Pinyon Script", cursive;
+  --font-title: "Cormorant Garamond", serif;
+  --font-body: "Roboto Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--green-1);
+  color: #151515;
+}
+
+h1 { font-family: var(--font-main); font-size: clamp(3rem, 8vw, 6rem); margin: 0; }
+h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1rem; }
+h3 { font-family: var(--font-title); font-size: clamp(4rem, 8vw, 6rem); margin-bottom: 1rem; }
+
+.fixed-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: transparent;
+  color: #fff;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  width: 30px;
+  height: 25px;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover span { background: #ddd; }
+
+.floating-rsvp-btn {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  pointer-events: auto;
+  padding: 1rem 1.5rem !important;
+  font-size: 1rem !important;
+  font-family: var(--font-title) !important;
+  font-weight: 700 !important;
+  z-index: 1200;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.floating-rsvp-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  color: #fff;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
+  min-width: fit-content;
+}
+
+.mobile-menu.active { display: block; }
+.mobile-menu ul { list-style: none; margin: 0; padding: 1rem 2rem; background: #000; }
+.mobile-menu li { margin: 1rem 0; }
+.mobile-menu a { color: #fff; text-decoration: none; font-size: 1.1rem; font-family: var(--font-body); }
+.mobile-menu a:hover { color: #ddd; }
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: url(../wedding/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.overlay { color: #fff; padding: 4rem; }
+
+.cta {
+  display: inline-block;
+  padding: .8rem 1.4rem;
+  border: 1px solid #fff;
+  color: inherit;
+  text-decoration: none;
+  margin-top: 1rem;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-title);
+  font-weight: 700;
+}
+
+.cta-large { padding: 1.2rem 2.5rem !important; font-size: 1.4rem !important; font-family: var(--font-title) !important; font-weight: 700 !important; }
+.container { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; align-items: center; }
+.reverse { grid-template-columns: 1.3fr .7fr; }
+.light { background: var(--green-5); color: #181818; }
+.dark { background: var(--green-2); color: #fff; }
+
+.story-section { background: var(--green-5); color: #121212; padding: 5.5rem 0 5.25rem; }
+.story-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.story-title { font-family: var(--font-title); font-size: clamp(2.4rem, 3.8vw, 3.3rem); font-weight: 500; line-height: 1; margin: 0 0 1.6rem; }
+.story-text { max-width: 1080px; }
+.story-text p { font-family: var(--font-body); font-size: clamp(1.05rem, 1.2vw, 1.5rem); line-height: 1.7; letter-spacing: .01em; margin: 0 0 1.5rem; }
+.story-gallery { margin-top: 2.1rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem; }
+.story-photo-frame { border: 2px solid #8f9a86; padding: .35rem; background: #d8dfd4; }
+.story-photo { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: grayscale(100%); }
+.history-image { background: var(--green-5); padding: 5rem 2rem; }
+.history-image img { max-width: 100%; height: auto; display: block; margin: 0 auto; max-height: 800px; object-fit: cover; }
+
+.lunch-section { background: var(--green-2); color: #fff; padding: 5.5rem 0; }
+.lunch-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 3.2rem; align-items: center; }
+.lunch-title { font-family: var(--font-title); color: #fff; font-size: clamp(2.6rem, 4.3vw, 4.1rem); line-height: 1.03; font-weight: 500; margin: 0 0 1.6rem; }
+.lunch-description, .lunch-details { font-family: var(--font-body); color: #fff; font-size: clamp(1.05rem, 1.2vw, 1.45rem); line-height: 1.55; margin: 0; }
+.lunch-description { margin-bottom: 1.8rem; }
+.lunch-photo-frame { border: 2px solid #d6ded0; padding: .45rem; background: #8a9880; }
+.lunch-photo { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.lunch-image { background: var(--green-5); padding: 0; }
+.lunch-image .container { padding: 0; max-width: 100%; }
+.lunch-image img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+.dresscode-section { background: var(--green-5); color: #121212; padding: 5.2rem 0 6rem; }
+.dresscode-container { max-width: 1260px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1.2fr .8fr; gap: 4rem; align-items: center; }
+.dresscode-photo-frame { border: 2px solid #d6ded0; padding: .45rem; background: #d4dbcf; }
+.dresscode-photo { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.dresscode-title { font-family: var(--font-title); font-size: clamp(2.6rem, 4vw, 3.9rem); line-height: 1.04; margin: 0 0 1.4rem; color: #141414; font-weight: 500; }
+.dresscode-text { font-family: var(--font-body); font-size: clamp(1rem, 1.1vw, 1.4rem); line-height: 1.5; margin: 0 0 1.2rem; color: #171717; }
+
+.gifts-section { background: var(--green-2); color: #fff; padding: 5.5rem 0; }
+.gifts-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem; align-items: center; }
+.gifts-content { max-width: 470px; }
+.gifts-photo-frame { border: 2px solid #d6ded0; padding: .45rem; background: #8a9880; }
+.gifts-photo { display: block; width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+.gifts-title { font-family: var(--font-title); color: #fff; font-size: clamp(2.5rem, 4vw, 3.8rem); line-height: 1; margin: 0 0 1.2rem; font-weight: 500; }
+.gifts-text { font-family: var(--font-body); color: #fff; font-size: clamp(1rem, 1.1vw, 1.35rem); line-height: 1.6; margin: 0 0 1.5rem; }
+.gifts-button { display: inline-block; border: 1px solid #dfe6da; color: #fff; text-decoration: none; font-family: var(--font-body); font-size: clamp(1rem, 1.2vw, 1.25rem); padding: .8rem 1.4rem; transition: .2s ease; background: transparent; }
+.gifts-button:hover { background: #dfe6da; color: #2a3225; }
+
+.footer-photo { position: relative; background: url(../wedding/end.jpg); color:#fff; min-height: 100vh; background-size: cover; background-position: center; }
+.footer-bottom-center { position: absolute; left: 0; right: 0; bottom: 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: .8rem; }
+.footer-title-box { background: rgba(0, 0, 0, 0.5); padding: 1; display: inline-block; line-height: 0; }
+.footer-title-box h3 { margin: 0; color: #fff; text-align: center; line-height: 1; display: inline-block; }
+.footer-title-box h2 { margin: 0; color: #fff; text-align: center; line-height: 1; display: inline-block; font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+.footer-button-container { display: flex; justify-content: center; width: 100%; }
+.footer-rsvp-button {
+  display: inline-block;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-title);
+  font-size: clamp(1.05rem, 1vw, 1.2rem);
+  font-weight: 700;
+  padding: .9rem 1.4rem;
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+
+.footer-rsvp-button:hover {
+  background: rgba(255,255,255,.14);
+}
+
+.hidden-admin-login {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background: #000;
+  color: #000;
+  border: 1px solid #000;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.35rem;
+  text-decoration: none;
+  opacity: 0.92;
+}
+.hidden-admin-login:hover {
+  background: #000;
+  color: #111;
+}
+
+.simple-page { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; background: var(--green-1); color: #fff; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; }
+.simple-page h1 { color: #fff; text-align: center; font-family: var(--font-title); font-size: clamp(2.8rem, 4.7vw, 5rem); }
+.simple-page legend { color: #fff; }
+.card-form { background: #fff; padding: 1.2rem; border-radius: 8px; display: grid; gap: 1rem; color: #000; }
+.card-form input, .card-form textarea { width: 100%; padding: .6rem; color: #000; }
+.card-form label { color: #000; }
+.card-form .cta { border: 1px solid #000; color: #000; font-size: 1.1rem; padding: .75rem 1.5rem; }
+
+.image-placeholder, .qr-placeholder { min-height: 280px; border: 3px solid var(--green-4); background: rgba(255,255,255,0.3); display:grid; place-items:center; padding:1rem; text-align:center; }
+
+.flash { margin: 0; padding: .8rem 1rem; }
+.notice { background: #61675f; }
+.confirmation { background: #cbd5c0; }
+.alert { background: #f47c7c; }
+
+.admin-page {
+  background: var(--green-1);
+  color: #fff;
+  min-height: 100vh;
+}
+
+.admin-shell {
+  width: min(980px, calc(100% - 2.4rem));
+  margin: 0 auto;
+}
+
+.admin-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-fixed-header {
+  background: rgba(20, 29, 18, .82);
+  backdrop-filter: blur(3px);
+}
+
+.admin-fixed-title {
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+}
+
+.admin-mobile-menu {
+  left: 0;
+  right: 0;
+}
+
+.admin-mobile-menu ul {
+  background: rgba(18, 27, 16, .92);
+}
+
+.admin-main {
+  padding: 1rem 0 2rem;
+}
+
+.admin-main--spaced {
+  padding-top: 5.5rem;
+}
+
+.admin-page,
+.admin-page h1,
+.admin-page h2,
+.admin-page h3,
+.admin-page p,
+.admin-page span,
+.admin-page li,
+.admin-page label,
+.admin-page td,
+.admin-page th,
+.admin-page a {
+  color: #fff;
+}
+
+.admin-section h2 {
+  margin: 0 0 .7rem;
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.admin-section p {
+  color: #eef2ea;
+  font-size: .95rem;
+}
+
+.admin-auth-page {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 6rem);
+}
+
+.admin-auth-card,
+.admin-list-card,
+.admin-form {
+  background: rgba(17, 24, 16, .66);
+  border: 1px solid rgba(223, 230, 218, 0.45);
+  border-radius: 12px;
+  color: #fff;
+}
+
+.admin-auth-card {
+  width: min(560px, 100%);
+  padding: 1.2rem;
+}
+
+.admin-form {
+  display: grid;
+  gap: .8rem;
+  padding: 1rem;
+}
+
+.admin-form-field label {
+  color: #fff;
+  display: block;
+  margin-bottom: .25rem;
+  font-size: .92rem;
+}
+
+.admin-form-field input,
+.admin-form-field textarea {
+  width: 100%;
+  padding: .6rem;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 8px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+}
+
+.admin-form-field textarea {
+  min-height: 100px;
+}
+
+.admin-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: .8rem;
+}
+
+.admin-list-card {
+  padding: .8rem 1rem;
+}
+
+.admin-clean-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .7rem;
+}
+
+.admin-clean-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .8rem;
+  border-bottom: 1px solid rgba(223, 230, 218, 0.28);
+  padding-bottom: .5rem;
+  font-size: .92rem;
+}
+
+.admin-inline-link,
+.admin-header a {
+  color: #fff;
+}
+
+.admin-actions-row {
+  display: flex;
+  gap: .7rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inline-button {
+  background: none;
+  border: 1px solid rgba(255,255,255,.7);
+  color: #fff;
+  padding: .45rem .8rem;
+  border-radius: 8px;
+}
+
+.admin-logout-button {
+  width: 100%;
+  text-align: left;
+}
+
+.admin-rsvp-table-wrap {
+  background: rgba(17, 24, 16, .66);
+  border: 1px solid rgba(223, 230, 218, .45);
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.admin-rsvp-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+  table-layout: fixed;
+}
+
+.admin-rsvp-table th,
+.admin-rsvp-table td {
+  border-bottom: 1px solid rgba(223, 230, 218, .25);
+  padding: .7rem .6rem;
+  text-align: left;
+  font-size: .9rem;
+  vertical-align: middle;
+}
+
+.admin-rsvp-table th {
+  background: rgba(255,255,255,.08);
+  font-size: .84rem;
+  letter-spacing: .02em;
+}
+
+.admin-rsvp-col-name { width: 56%; }
+.admin-rsvp-col-attending { width: 14%; text-align: center; }
+.admin-rsvp-col-date { width: 30%; }
+
+.admin-rsvp-cell-name {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.admin-rsvp-cell-attending {
+  text-align: center;
+}
+
+.admin-rsvp-cell-date {
+  white-space: nowrap;
+}
+
+.admin-rsvp-empty {
+  text-align: center;
+  font-style: italic;
+  color: rgba(255, 255, 255, .85);
+}
+
+
+.gift-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; }
+.gift-card { background:#fff; border-radius:8px; padding:1rem; }
+.gift-card img { width:100%; border-radius:6px; height:180px; object-fit:cover; }
+
+.giftspage-wrap { background: var(--green-1); min-height: 100vh; padding: 4.5rem 0 5rem; color: #fff; }
+.giftspage-container { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
+.giftspage-header { margin-bottom: 2.2rem; text-align: center; }
+.giftspage-header h1 { margin: 0 0 .9rem; color: #fff; font-family: var(--font-title); font-size: clamp(2.8rem, 4.7vw, 5rem); line-height: 1.05; }
+.giftspage-header p { margin: 0 auto; max-width: 760px; font-size: clamp(1rem, 1.2vw, 1.3rem); line-height: 1.6; }
+.giftspage-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+.giftspage-card { background: rgba(223, 230, 218, 0.12); border: 1px solid rgba(223, 230, 218, 0.5); padding: .95rem; }
+.giftspage-photo { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid #dfe6da; display: block; margin: 0 auto; }
+.giftspage-photo--placeholder { display: grid; place-items: center; background: rgba(223, 230, 218, 0.2); color: #f4f7f2; font-size: .95rem; }
+.giftspage-card h2 { color: #fff; margin: .75rem 0 .35rem; font-family: var(--font-title); font-size: clamp(1.6rem, 2vw, 2.1rem); line-height: 1.1; }
+.giftspage-desc { margin: 0 0 .55rem; line-height: 1.45; }
+.giftspage-price { margin: 0 0 .85rem; font-weight: 1800; font-size: clamp(1.2rem, 1vw, 1rem)}
+.giftspage-buy { margin-top: .2rem; }
+.giftspage-buy:hover { opacity: .95; }
+
+@media (max-width: 800px) {
+  .hero {
+    min-height: 84vh;
+    background-image: url(../wedding/hero_2.png), url(wedding/hero_2.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .footer-photo {
+    min-height: 84vh;
+    background-image: url(../wedding/end_2.png), url(wedding/hero_2.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .lunch-container,
+  .dresscode-container,
+  .gifts-container,
+  .giftspage-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .story-gallery {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: .4rem;
+  }
+
+  .story-photo-frame {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
+  }
+
+  .giftspage-container {
+    padding: 0 .9rem;
+  }
+
+  .giftspage-photo {
+    width: 100%;
+    max-width: none;
+  }
+
+  .overlay { padding: 2rem; }
+}
+
+/* RSVP public page */
+.rsvp-page {
+  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url(../wedding/rsvp_2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 4rem 1.5rem 0;
+}
+
+.rsvp-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.rsvp-header {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.rsvp-header h1 {
+  font-family: var(--font-title);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  margin-bottom: .5rem;
+  color: #fff;
+}
+
+.rsvp-header p { color: #fff; }
+
+.rsvp-form {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  padding: 1.3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.rsvp-field label { color: #fff; display: block; margin-bottom: .35rem; }
+
+.rsvp-form p { color: #fff; margin: 0 0 .2rem; }
+.rsvp-field input[type="text"] {
+  width: 100%;
+  padding: .8rem;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 8px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  font-size: 16px;
+}
+.rsvp-field input[type="text"]::placeholder { color: rgba(255,255,255,.75); }
+
+.rsvp-choice-group {
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 10px;
+  padding: .9rem;
+  background: rgba(255,255,255,.18);
+}
+
+.rsvp-choice-group legend { color: #fff; font-weight: 700; }
+.rsvp-choice { display: flex; gap: .6rem; align-items: center; margin-top: .5rem; color: #fff; }
+
+.rsvp-submit {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: clamp(1.2rem, 1vw, 1.0rem);
+  font-weight: 700;
+  padding: 1.3rem 1.7rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.rsvp-submit:hover { background: rgba(255,255,255,.14); }
+.rsvp-form iframe {
+  background: transparent !important;
+  color-scheme: dark;
+  display: block;
+  margin: 0 -1px;
+}
+
+.rsvp-bottom-photo {
+  margin-top: 2rem;
+}
+
+.rsvp-couple-photo {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gift payment page */
+.payment-page-wrap {
+  min-height: 100vh;
+  background: var(--green-5);
+  padding: 3rem 1.5rem;
+}
+
+.payment-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid var(--green-4);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.payment-card h1 {
+  font-family: var(--font-title);
+  font-size: clamp(2.3rem, 4vw, 3.3rem);
+}
+
+.payment-price { font-size: 2rem; font-weight: 700; color: #1f2a1a; }
+.payment-instruction { margin: 1rem 0; }
+.payment-qr-box { border: 1px dashed var(--green-2); padding: .9rem; margin: 1rem auto; max-width: 360px; }
+.payment-qr-image { width: 100%; max-width: 320px; aspect-ratio: 1/1; object-fit: cover; }
+.payment-back-button { display: inline-block; margin-top: 1rem; text-decoration: none; border: 1px solid var(--green-2); color: var(--green-2); padding: .7rem 1.1rem; }
+
+/* Admin RSVP page */
+.admin-rsvp-page { background: #f4f7f1; border: 1px solid var(--green-4); border-radius: 10px; padding: 1rem; }
+.admin-rsvp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .8rem; }
+.admin-rsvp-header h2 { margin: 0; }
+.admin-rsvp-table-wrap { overflow-x: auto; }
+.admin-rsvp-table { width: 100%; }
+
+.attendance-badge {
+  display: inline-block;
+  padding: .2rem .6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+.attendance-badge.yes { background: #d9f3d3; color: #21561a; }
+.attendance-badge.no { background: #ffdede; color: #7d1f1f; }
+
+
+/* Bootstrap-like fallback button styles */
+.btn { display:inline-block; padding:.7rem 1.2rem; border-radius:8px; text-decoration:none; font-family: var(--font-title); font-weight:700; border:1px solid transparent; cursor:pointer; }
+.btn-light { background:#f8f9fa; color:#212529; border-color:#f8f9fa; }
+.btn-light:hover { background:#e2e6ea; border-color:#dae0e5; color:#212529; }
+.btn-dark { background:#212529; color:#f8f9fa; }
+
+/* Gift payment popups */
+.gift-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 2000;
+}
+
+.gift-modal.active {
+  display: block;
+}
+
+.gift-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.gift-modal-card {
+  position: relative;
+  max-width: 620px;
+  width: calc(100% - 2rem);
+  margin: 6vh auto 0;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.3rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.gift-modal-close {
+  position: absolute;
+  top: .4rem;
+  right: .6rem;
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gift-modal-item {
+  margin: .2rem 0;
+  font-weight: 100;
+}
+
+.gift-modal-price {
+  margin: .2rem 0;
+  font-weight: 900;
+  line-height: 1.5;
+  font-size: clamp(2rem, 1vw, 1rem);
+}
+
+.gift-modal-qr-wrap {
+  border: 1px dashed var(--green-2);
+  margin: 1rem auto;
+  padding: .8rem;
+  max-width: 360px;
+}
+
+.gift-modal-qr {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.gift-modal-text {
+  color: #24301f;
+  line-height: 1.5;
+}
+
+.gift-modal-confirm {
+  border: 1px solid var(--green-2);
+  background: var(--green-2);
+  color: #fff;
+  padding: .65rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gift-modal-thank-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: .8rem;
+}
+
+.giftspage-card .btn-light { background:#f8f9fa; color:#212529; border-color:#f8f9fa; }
+.giftspage-card .btn-light:hover { background:#e2e6ea; color:#212529; border-color:#dae0e5; }
+
+@media (max-width: 700px) {
+  .admin-rsvp-table {
+    min-width: 560px;
+  }
+
+  .floating-rsvp-btn {
+    right: 1rem;
+    top: 1rem;
+    padding: .8rem 1rem !important;
+  }
+
+  .gift-modal-card {
+    width: calc(100% - 1rem);
+    margin-top: 4vh;
+    padding: 1rem;
+  }
+
+  .gift-modal-qr {
+    max-width: 220px;
+  }
+
+  .gift-modal-qr-wrap {
+    padding: .6rem;
+    margin: .8rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-photo-frame {
+    flex-basis: 88%;
+  }
+
+}
